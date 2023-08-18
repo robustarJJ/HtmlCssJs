@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이중 For문</title>
+    <style>
+        table{
+            border: 3px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        구구단 2~9단 까지 출력하기
+    </h1>
+    <input type="number" id="search">
+    <button type="button" onclick="googoodan()">구구단 출력</button>
+    <h3 id="result"></h3>
+
+    <script>
+        function googoodan() {
+            let search= document.getElementById("search").value;
+            let num = 2;
+
+            // 결과를 표시할 요소를 가져옴
+            let resultElement = document.getElementById("result");
+            // 결과를 초기화
+            resultElement.innerHTML = '';
+            if(search==""){
+                for (let i = 2; i < 10; i++) {
+                    for (let i = 1; i < 10; i++) {
+                        // 결과를 문자열로 만들어서 resultElement에 추가
+                    resultElement.innerHTML += `
+                    <table>
+                        <tr>
+                            <td>${num} * ${i} = ${num * i}</td>
+                        </tr>
+                    </table>
+                    `;
+                    
+                    }
+                    // 각 단마다 줄 구분
+                    resultElement.innerHTML += "----------\n";
+                    num++
+                }
+            }else{
+                for(let i = 1; i < 10; i++){
+                    resultElement.innerHTML += `
+                    <table>
+                        <tr>
+                            <td>${search} * ${i} = ${search * i}</td>
+                        </tr>   
+                    </table>
+                    `;
+                }
+            }
+
+        }
+
+        
+    </script>
+</body>
+</html>
+
+
+

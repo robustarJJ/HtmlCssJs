@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation</title>
+    <style>
+        .box{
+            width: 50px;
+            height: 50%;
+            background-color: brown;
+            position: absolute;
+        }
+        @keyframes ani-box{
+            0%{
+                left: 0;
+            }
+            50%{
+                left: 90%
+            }
+            100%{
+                left: 0;
+            }
+        }
+        .box{
+            animation-name: ani-box;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>set을 이용한 LOTTO 생성</title>
+</head>
+<body>
+    <button type="button" id="makeRandom">lotto번호 6개 출력</button>
+    <h1 id="printNum"></h1>
+    <button type="button" id="makeRandom2">당첨번호 7개(6자리+보너스1자리)</button>
+    <h1 id="printNum2"></h1>
+    <button type="button" onclick="ranking()" >당첨확인</button>
+    <button type="button" onclick="reset()">reset</button>
+    <h1 id="printResult"></h1>
+
+    <script>
+        
+        const makeRandom = document.getElementById('makeRandom');
+        const makeRandom2 = document.getElementById('makeRandom2');
+        const printNum = document.getElementById('printNum');
+        const printNum2 = document.getElementById('printNum2');
+        const printResult = document.getElementById('printResult');
+        
+        let rNumArr=[];
+        makeRandom.addEventListener('click', function(){
+            rNumArr=[];
+            printNum.innerText='';
+            const rNumSet = new Set();
+            for(let i=0; rNumSet.size<6; i++){ //set에 담기는 값이 6개까지...(중복x)
+                let rNum = Math.floor(Math.random()*45)+1;
+                rNumSet.add(rNum);
+            }
+            console.log(rNumSet);
+
+            //배열로 변환
+            for(const r of rNumSet){ //for of
+                rNumArr.push(r);
+            }
+            //printNum.innerText = rNumArr; //그냥 화면에 찍기
+
+            //정렬하여 화면에 찍기
+            printNum.innerText=
+            rNumArr.sort(function(a,b){return a-b});
+        })
+
+        let rNumArr2=[];
+        makeRandom2.addEventListener('click', function(){
+            rNumArr2=[];
+            printNum2.innerText='';
+            const rNumSet = new Set();
+            for(let i=0; rNumSet.size<7; i++){ //set에 담기는 값이 6개까지...(중복x)
+                let rNum = Math.floor(Math.random()*45)+1;
+                rNumSet.add(rNum);
+            }
+            console.log(rNumSet);
+
+            //배열로 변환
+            for(const r of rNumSet){ //for of
+                rNumArr2.push(r);
+            }
+            for(let i=0; i<rNumArr2.length-1; i++){ //전체순환 -1 (보너스 번호 빼기)
+                printNum2.innerText += rNumArr2[i]+", ";
+            }
+            printNum2.innerText += `[${rNumArr2[rNumArr2.length-1]}]`;
+        })
+
+        function ranking(){
+            let cnt=0;
+            let bonus=rNumArr2.pop(); //배열의 마지막 값을 빼서 리턴
+            console.log(bonus);
+            console.log(rNumArr2);
+
+            for(const a of rNumArr){
+                for(const b of rNumArr2){
+                    if(a==b){
+                        cnt++;
+                    }
+                }
+            }
+            console.log(cnt);
+
+            let print='';
+
+            switch(cnt){
+                case 6 : print = '축~!! 1등 당첨~!!'; break;
+                case 5 : 
+                for(let i=0; i<rNumArr.length; i++){
+                    if(rNumArr[i] == bonus){
+                        print='축~!! 2등 당첨~!!';  
+                    }else{
+                        print='축~!! 3등 당첨~!!';                 
+                    }
+                }
+                break;
+                case 4: print = '축 4등 당첨~!!'; break;
+                case 3: print = '축 5등 당첨~!!'; break;
+                default:
+                    print='꽝!!';
+            }
+            printResult.innerText=print;
+        }
+
+        function reset(){
+            //배열 내용 삭제 : splice(index, count) : index부터, count개수까지 제거
+            //splice(index, count, item) : index부터, count개수까지 제거 후 item 삽입
+
+            rNumArr.splice(0,6);
+            rNumArr2.splice(0,7);
+            printNum.innerText='';
+            printNum2.innerText='';
+            printResult.innerText='';
+        }
+    </script>
+</body>
+</html>

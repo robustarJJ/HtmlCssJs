@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        alert 창 : 안내문을 띄워주는 창 => 확인버튼
+        confirm 창 : 확인(true), 취소(false)
+        prompt 창 : 값을 입력받을 수 있음. 값을 변수에 받을 수 있음.
+     -->
+
+     <h1>안녕하세요?</h1>
+     <h3 id="result"></h3>
+
+     <script>
+        let name = prompt("이름을 입력해 주세요.");
+        console.log(name);
+        document.getElementById('result').innerText=
+        `${name}님 어서오세요`;
+
+        let a = confirm('hello');
+        console.log(a);
+
+        alert('창 확인 alert써봄');
+     </script>
+
+
+
+
+</body>
+</html>

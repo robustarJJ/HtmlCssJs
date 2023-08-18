@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try~catch</title>
+</head>
+<body>
+    <h1>
+        예상되는 에러를 try{code..} 영역에 배치하고, 만약 에러가 발생하면 catch(err)(code...) 영역에서 처리하는 예외 처리 프로세스
+    </h1>
+    <ul>
+        <li>
+            try 영역 : 에러 발생 가능성이 있는 코드를 실행하는 곳
+        </li>
+        <li>
+            catch(err) : 에러 발생시 예외처리를 하는 곳
+        </li>
+        <li>
+            try~catch로 예외처리를 하면 프로세스가 멈추지 않고 지속시킬 수 있음.
+        </li>
+        <li>
+            finally 영역 : 예외처리와 관계없이 무조건 코드를 실행하는 영역
+        </li>
+        <li>
+            throw : 예외를 고의적으로 발생시키는 키워드 throw + 처리할 코드
+        </li>
+    </ul>
+
+    <script>
+        console.log('프로세스 시작~!!')
+        try{
+            console.log('경고창 실행 확인1');
+            alerttt('경고창 실행'); //명령어 잘못 입력
+            console.log('경고창 실행 확인2');
+        }catch(err){
+            console.log('catch영역');
+            console.log(err.name);
+            console.log(err.message);
+            try{
+                if(err.message.toString().length > 0){ //에러 메시지가 존재 한다면
+                    throw '에러메시지 존재함.';
+                }
+            }catch(err2){
+                console.log(err2.message);
+            }finally{
+                console.log('마지막 fially 영역');
+            }
+        }finally{
+            console.log('마지막 finally 영역...')
+        }
+        console.log('프로세스 종료~!!')
+    </script>
+
+</body>
+</html>

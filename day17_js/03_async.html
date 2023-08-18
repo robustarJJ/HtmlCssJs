@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>async await</title>
+</head>
+<body>
+    <h1>
+        비동기 통신(asynchronous communication) : AJAX (ajax)
+    </h1>
+    <ul>
+        <li>
+            데이터를 받는 방식(통신) : 동기통신, 비동기통신
+        </li>
+        <li>
+            동기통신(synchronous) : 동시에 일어난다
+            요청을 하면 응답을 바로 받는다는 의미
+        </li>
+        <li>
+            비동기통신(asynchronous) : 동시에 일어나지 않는다
+            요청을 하면 그자리에서 결과가 주어지지 않을 수 있음 (ex 댓글)
+        </li>
+        <li>
+            -동기와 비동기의 장단점-
+        </li>
+        <li>
+            동기방식 : 설계가 간단하고 직관적.
+                       결과가 주어지기전까지는 아무것도 못하고 대기해야 하는 단점이 있음
+        </li>
+        <li>
+            비동기방식 : 설계가 복잡함.
+                         결과가 주어지는데 시간이 걸리더라도 그동안 다른 작업이 가능. 효율적임.
+        </li>
+    </ul>
+    <ul>
+        <li>
+            async await : Promise 객체를 이용하여 데이터 통신을 편리하게 해주는 (제공되는) 키워드
+        </li>
+        <li>
+            async 키워드 : 함수선언 키워드(function) 앞에 사용하면 그 함수의 리턴을 프로미스 객체타입으로 만들어준다.
+        </li>
+        <li>
+            await 키워드 : 순차적 코드 실행시 데이터 통시과 같은 지연로딩 또는 지연 실행 같은 상황이 발생되면
+                           코드의 실행 순서를 순차적으로 진행할 수 있도록 보증한다. 
+                           즉, 이전 라인의 코드 실행이 완료될때까지 다음 라인을 기다리도록 하는 기능. 
+        </li>
+        <li>
+            http://jsonplaceholder.typicode.com/
+        </li>
+    </ul>
+    <h3>
+        <button type="button" id="btn">데이터 불러오기</button>
+    </h3>
+
+    <script>
+        document.getElementById('btn').addEventListener('click', function(){
+            async function awaitEx(){
+                try{
+                    const resp = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+                    const result = await resp.text();
+                    console.log(resp);
+                    console.log(typeof resp);
+                    console.log(result);
+                    console.log(typeof result);
+                    let j = JSON.parse(result);
+                    console.log(j);
+                    console.log(typeof j);
+
+                    return result;
+                }catch(err){
+                    console.log(err);
+                }finally{
+                    console.log('await finish');
+                }
+            }
+            //프로미스 객체로 리턴 됨.
+            let text = awaitEx();
+            console.log(text);
+            console.log(typeof text);
+        })
+    </script>
+
+</body>
+</html>

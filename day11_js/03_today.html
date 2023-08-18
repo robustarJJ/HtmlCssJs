@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오늘은?</h1>
+    <button type="button" onclick="todayPrint()">today</button>
+    <h3 id="result">
+        <!-- 오늘날짜와 요일을 출력 -->
+        <!-- 2023. 07. 31.(월) -->
+    </h3>
+    <script>
+        function todayPrint(){
+            let today = new Date();
+            console.log(today.toLocaleDateString());
+            let today1 = today.toLocaleDateString(); //년월일
+            let todayday = today.getDay(); //요일번호
+            switch(todayday){
+                case 1 : todayday='월요일'; break;
+                case 2 : todayday='화요일'; break;
+                case 3 : todayday='수요일'; break;
+                case 4 : todayday='목요일'; break;
+                case 5 : todayday='금요일'; break;
+                case 6 : todayday='토요일'; break;
+                case 0 : todayday='일요일'; break;
+            }
+            document.getElementById("result").innerText=
+            `${today1} ${todayday}`; 
+        }
+
+
+
+        //오늘날짜 반환
+        let today = new Date();
+        console.log(typeof today);
+        console.log(today.getFullYear()); //년도
+        console.log(today.getMonth()+1); //월 (0~11월 +1)
+        console.log(today.getDate()); //일 반환 1~31
+        console.log(today.getDay()); //요일 (0(일)~6(토))
+        
+        //getHours, minutes, seconds : 시분초 추출
+
+        let today2 = today.toLocaleDateString();
+        console.log(today2);
+        let time = today.toLocaleTimeString();
+        console.log(time);
+
+        console.log(today.toLocaleDateString());
+    </script>
+
+</body>
+</html>

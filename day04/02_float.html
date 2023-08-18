@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float 속성</title>
+    <!-- 
+        float : 요소를 띄우는 속성
+        - 원래는 웹페이지에서 이미지를 텍스트와 함께 배치할 목적으로 만든 속성
+        - 한 라인에 요소를 각각 오른쪽과 왼쪽에 배치할 때 유용하게 쓰임.
+        - float 속성을 사용하면 자식 요소의 높이 값을 부모가 인식할 수 없음. 주의~!!
+        - ::after 가상선택자를 이용하여 css 상에서 가상요소로 부모가 높이를 인식할 수 있게 가상 컨텐츠를 제공
+            .클래스::after{
+                contet:""; //빈 컨텐츠 제공
+                clear : both  //float 속성을 제거
+                display : block;
+            }
+     -->
+     <style>
+        .p-box{
+            width: 400px;
+            background-color: aqua;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            float: left;
+            box-sizing: border-box;
+        }
+        /* p-box::after를 구성하여 부모 박스의 높이를 잡음 */
+        .p-box::after{
+            content: "";
+            clear: both;
+            display: block;
+        }
+     </style>
+</head>
+<body>
+    <div class="p-box">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+    </div>
+</body>
+</html>

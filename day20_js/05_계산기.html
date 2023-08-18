@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #1f1f1f1f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calculator{
+            border: 1px solid #333;
+            background-color: #ccc;
+            padding: 5px;
+        }
+        .calculator form{
+            display: grid;
+            grid-template-columns: repeat(4, 65px);
+            grid-auto-rows: 65px;
+            gap: 5px;
+        }
+        .calculator form button, input{
+            font-size: 1rem;
+            /* font-weight: bold; */
+            border: 2px solid black;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .calculator form button:hover{
+            box-shadow: 1px 1px 2px #333;
+        }
+        .calculator form .clear{
+            background-color: orangered;
+        }
+        .calculator form .operator{
+            background-color: orange;
+        }
+        .calculator form .dot{
+            background-color: greenyellow;
+        }
+        .calculator form input[type='text']{
+            grid-column: span 4;
+            text-align: right;
+            background-color: white;
+        }
+        .calculator form .clear{
+            grid-column: span 3;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .calculator form .result{
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <form name="forms">
+            <input type="text" id="output" name="output" >
+            <button type="button" class="clear" value="C">C</button>
+            <button type="button" class="operator" value="/">/</button>
+            <button type="button" class="number" value="1">1</button>
+            <button type="button" class="number" value="2">2</button>
+            <button type="button" value="3">3</button>
+            <button type="button" class="operator" value="*">*</button>
+            <button type="button" value="4">4</button>
+            <button type="button" value="5">5</button>
+            <button type="button" value="6">6</button>
+            <button type="button" class="operator" value="+">+</button>
+            <button type="button" value="7">7</button>
+            <button type="button" value="8">8</button>
+            <button type="button" value="9">9</button>
+            <button type="button" class="operator" value="-">-</button>
+            <button type="button" class="dot" value=".">.</button>
+            <button type="button" value="0">0</button>
+            <button type="button" class="operator result" value="=">=</button>
+        </form>
+    </div>
+    <script>
+        let numval='';
+        let numval2 = '';
+        let result='';
+        let op = '';
+        let output = document.getElementById('output');
+        document.addEventListener('click',(e)=>{
+            if(e.target.className=='clear'){
+                // document.getElementsByClassName('clear')[0].addEventListener('click',()=>{
+                        output.value='0';
+                        numval='';
+                        numval2 = '';
+                        result='';
+                        op = '';
+                    // })
+            }else{
+                if(e.target.className!='operator' && e.target.className!='=' && op==''){
+                    numval += e.target.value;
+                    output.value=numval;
+                    console.log(numval);
+                }else if(e.target.className=='operator'){
+                    op =e.target.value;
+                    console.log(op);
+                }
+                
+                if(e.target.className!='operator' && e.target.className!='=' && op!=''){
+                    numval2 += e.target.value;
+                    output.value=numval2;
+                    console.log(numval2);
+                }
+                
+                if(e.target.className=='operator result'){
+                    numval=parseFloat(numval);
+                    numval2=parseFloat(numval2);
+                    switch(op){
+                        case "+" : result=numval+numval2; break;
+                        case "-" : result=numval-numval2; break;
+                        case "*" : result=numval*numval2; break;
+                        case "/" : result=numval/numval2; break;
+                        default : break;
+                    } 
+                    output.value=result;
+                    console.log(result);
+                }
+                
+            }
+
+            
+        })
+        
+        
+        
+    </script>
+</body>
+</html>

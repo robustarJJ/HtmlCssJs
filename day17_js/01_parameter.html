@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수와 파라미터</title>
+</head>
+<body>
+    <h1>
+        자바 스크립트의 파라미터의 특징과 기능
+        자바에서 매개변수를 자바 스크립트에서 파라미터 라고 함.
+    </h1>
+    <ul>
+        <li>
+            파라미터의 개수와 관계엇이 함수나 메서드의 이름이 같다면 호출이 가능.
+        </li>
+        <li>
+            파라미터의 개수가 불일치 하여 값을 받지 못하는 파라미터는 undefined처리
+        </li>
+        <li>
+            값을 받아오지 못하는 파라미터가 undefined 일 경우 별도로 파라미터에 기본값을 처리할 수 있음.
+            => optional parameter
+        </li>
+        <li>
+            옵셔널 파라미터 : 파라미터의 값이 전달되지 않았을 때 기본값이 설정된 파라미터
+        </li>
+        <li>
+            옵셔널 파라미터는 일반적인 파라미터들 보다 항상 뒤에 위치해야 한다.
+        </li>
+        <li>
+            모든 파라미터를 관리하는 arguments라는 프로퍼티를 이용하여 파라미터를 배열에 담아 사용할 수도 있음.
+        </li>
+        <li>
+            단. 옵셔널 파라미터는 저장하지 않는다
+        </li>
+        <li>
+            rest parmeter : 나머지(이외의, 남는것들) 파라미터
+        </li>
+        <li>
+            사용할 파라미터는 일반 파라미터로 배정하고, 나머지 파라미터들의 통합하여 하나의 이름으로 배정하는 기법
+        </li>
+        <li>
+            ... : spread 연산자라고 하고, 배열, 객체를 복제하는데 사용한다.
+        </li>
+    </ul>
+
+    <script>
+        function testFun(p1, p2, p3, p4, p5=1){
+            console.log(arguments);
+            console.log(arguments.length);
+            console.log(p1,p2,p3,p4,p5);
+            return p1+p2-p3*p4/p5;
+        }
+        console.log(testFun(1,2,3,4,5)); //1+2-3*4/5
+        console.log(testFun(1,2,3,4)); //1+2-3*4/1
+        console.log(testFun(1,2,3)); //NaN
+
+        function myfun(x, px){
+            let y=px;
+            if(y == undefined){
+                y=1; //옵셔널이 실제 동작하는 과정
+            }
+            console.log(x,y);
+        }
+        myfun(1);
+        console.log("--------------------");
+
+        function restFun(a, b, ...others){
+            console.log(a+b);
+            console.log(others);
+            for(const o of others){
+                console.log(`others : ${o}`);
+            }
+        }
+        restFun(2,5,1,2,3,4,5);
+        console.log("--------------------");
+
+        let oldArr = ['a','b','c','d','e','f'];
+        let newObj={...oldArr};
+        console.log(oldArr);
+        console.log(newObj);
+
+        function sum(a,b,c){
+            return a+b+c;
+        }
+        let num = [1,2,3];
+        console.log(sum(...num));
+
+    </script>
+
+</body>
+</html>

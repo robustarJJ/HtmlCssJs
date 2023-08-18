@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+</head>
+<body>
+    <h1>
+        map : key / value 형태의 데이터를 한개의 배열로 만들어서 다시 배열에 저장하는 방식
+    </h1>
+    <ul>
+        <li>
+            선언 및 초기화 : new Map(), new Map([['key','value'],['key','value'],['key','value']]);
+        </li>
+        <li>
+            2차원 배열과 비슷한 구조, 기본적으로 중첩 구조를 가지고 있기 때문에 key 중복확인은 필수~!!
+        </li>
+        <li>
+            key를 식별자로 사용하는 get(keyName), set(keyName, value) 메서드 제공
+        </li>
+        <li>
+            key의 타입은 문자로 하는 것이 원칙 => key의 타입이 달라지면 관리 어려워짐.
+        </li>
+        <li>
+            map.set(key, value) : 키에 대한 값을 변경
+        </li>
+        <li>
+            map.get(key) : 키에 해당하는 value를 리턴
+        </li>
+        <li>
+            map.delete(key) / has() / forEach / entries() / size
+        </li>
+    </ul>
+
+    <script>
+        const myMap = new Map();
+        myMap.set('html',85);
+        myMap.set('css',87);
+        myMap.set('js',96);
+        console.log(myMap);
+        console.log(myMap.get('js'));
+
+        //map의 html 요소를 제거
+        //map의 html 요소가 있는지 확인
+        //map을 순회하여(forEach사용) 콘솔에 찍기 (v,i,s)
+        myMap.delete('html');
+        console.log(myMap);
+        console.log(myMap.has('html'));
+        myMap.forEach(function(v,i,s){
+            console.log(i,v,s);
+        })
+
+        console.log("------------------");
+        console.log(myMap.entries());
+        for(const iter of myMap.entries()){
+            console.log(iter);
+            for(const key of iter){
+                console.log(key);
+            }
+        }
+
+        console.log(myMap.keys());
+
+        myMap.clear();
+        console.log(myMap);
+    </script>
+
+</body>
+</html>

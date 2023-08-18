@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        JSON : JavaScript Object Notation : 자바 스크립트 객체 표기법
+    </h1>
+    <ul>
+        <li>
+            데이터의 요청 및 응답처리에 필요한 데이터의 표준 형식을 제공하는 타입
+        </li>
+        <li>
+            백엔드(서버)언어의 종류에 상관없이 데이터 송수신 단일 형식으로 통일되어 사용
+        </li>
+        <li>
+            데이터 전송은 전부 String 타입으로 이루어짐
+        </li>
+        <li>
+            서버로 데이터를 보낼 때 > 
+            JSON to String > JSON.stringify (js Object)
+        </li>
+        <li>
+            서버로부터 데이터를 받을 때 >
+            string to json > JSON.parse (string data)
+        </li>
+    </ul>
+
+    <script>
+        //서버에서 온 데이터 stringData
+        const stringData = `{"id":"1234","type":"donut","name":"cake",`+
+        `"image":{"url":"img/thumbnail/001.jpg","width":"20","height":"20"}}`;
+        console.log(stringData);
+
+        let parseData = JSON.parse(stringData); //string -> object
+        console.log(parseData);
+        console.log("--------------------------------");
+
+        //console에 key : value 형식으로 출력
+        //for in으로 접근
+        for(const key in parseData){
+            if(key=='image'){
+                for(const k in parseData[key]){
+                    console.log(k, ":", parseData[key][k]);
+                }
+            }else{
+                console.log(key, ':', parseData[key]);
+            }
+        }
+    </script>
+
+</body>
+</html>

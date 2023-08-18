@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수사용</title>
+    <!-- 
+        자바 스크립트 변수
+        값을 담고 있는 메모리 공간의 이름
+        자바 스크립트에서 변수는 선언(배정, 할당, 정의)하는 역할만 함.
+        var, let(ES6버전 부터는 let을 사용하라고 적극 권장함.)
+        - 자바와 달리 자료형이 없음.
+        - let으로 선언하면 어떤 값이든 다 담을 수 있음.
+        const
+        -------------------------------
+        name
+        var name = "hong";
+        var name = "kim";
+        가능 (에러안남)
+
+        -지역변수 개념
+        let name = "hong";
+        let name = "kim";
+        - 중복선언 안됨 (에러). 
+        let name = "hong";
+            name = "kim";
+        - 재할당 가능.
+        - 스코프(scope)를 벗어나면 다시 재선언 가능
+        - 지역변수 스코프 { }
+
+        const name = "hong";
+              name = "kim"; 불가능
+        - 변수 재선언 안됨. 재할당도 안됨.
+        - 선언 이후 항상 고정값을 가지는 경우 사용
+        - 고정된 값을 사용하는 규칙, 참조, 룰, 객체 정의시 사용
+     -->
+</head>
+<body>
+    <h1>변수사용범위</h1>
+    <script>
+        // console.log(name);
+        // var name = "hong";
+        // console.log(name);
+        // var mame = "kim";
+        // console.log(name);
+        let name = "hong";
+        console.log(typeof name);
+        //중복선언 불가능
+        // let name = 'kim';
+        name = 'kim';
+        console.log(name);
+        name = 20;
+        console.log(typeof name) + "값 : " + name;
+        //자바스크립트에서 변수값의 타입을 알아볼때 typeof 키워드 사용
+        //문자를 연결할 때 + 연산자 사용
+        //" "  ' ' : 둘다 문자를 인식시킬때 사용
+        //백틱 ``: 백틱 내부에 코드 삽입이 가능 ${} 통해 삽입
+        
+        //이름, 나이, 주소, 취미 변수를 선언하여 콘솔에 출력
+        //이름 : kim  나이 : 20
+        name = 'kim';        
+        let age = '20';       
+        let adr = '인천시 남동구';       
+        let hobby = '자바';
+        console.log('이름:'+name+'나이:'+age+'주소:'+adr+'취미:'+hobby);
+        console.log(`name: ${name}, age:${age}, adr:${adr}, hobby:${hobby}`);
+        // console.log()
+
+        //카멜표기법 사용, 숫자로 시작하는 변수명은 불가능.
+    </script>
+</body>
+</html>

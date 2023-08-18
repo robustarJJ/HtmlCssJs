@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up Down Game</title>
+</head>
+<body>
+    <h1>Up Down Game</h1>
+    <ol>
+        <li>랜덤 숫자 만들기 버튼을 클릭하면 컴퓨터가 랜덤으로 1~99(포함)의 숫자 1개를 생성한다.</li>
+        <li>숫자가 생성되면 컴퓨터가 랜덤으로 숫자를 생성하였습니다 라는 안내 문구가 출력된다.</li>
+        <li>input란에 1~99(포함)숫자를 입력하고 맞추기라는 버튼을 클릭하면</li>
+        <li>컴퓨터의 숫자보다 높은 숫자이면 Down을 출력, 낮은 숫자면 Up을 출력</li>
+        <li>컴퓨터의 숫자를 맞추면 정답입니다~ 컴퓨터 숫자는 ? 이었습니다 라는 메시지 출력</li>
+        <li>5회 이상 틀리면 게임 종료 컴퓨터가 승리</li>
+    </ol>
+    <h1>
+        <button type="button" onclick="computerNum()">랜덤 숫자 생성 버튼</button>
+        <button type="button" onclick="window.location.reload()">다시시도</button>
+    </h1>
+    <h3 id="printMsg"></h3>
+    <h1>
+        <input type="text" id="myGuess">
+        <button type="button" onclick="compareNum()">정답</button>
+    </h1>
+    <h3 id="result"></h3>
+    <script>
+        let comNum = 0;
+        let count=0; //횟수
+        // let myNum=document.getElementById('myGuess').value;// 아무것도 입력되지 않는 빈 영역
+
+        function computerNum(){
+            comNum=Math.floor(Math.random()*99)+1;
+            document.getElementById('printMsg').innerHTML=
+            `컴퓨터가 랜덤수(1~99)를 생성하였습니다.`;
+        }
+
+        function compareNum(){ //숫자비교
+            let str='';
+            if(count < 5){
+                let myNum= Number(document.getElementById('myGuess').value); //숫자로 변환
+                count++; //1회 증가
+                if(myNum > 0 && myNum < 99){
+                    if(comNum==myNum){
+                        str=`시도횟수 ${count}, 정답입니다. 컴퓨터의 숫자는 ${comNum}였습니다`;
+                    }else if(comNum > myNum){
+                        str=`시도횟수 ${count}, UP!!`;
+                    }else{
+                        str=`시도횟수 ${count}, DOWN!!`;
+                    }
+                }else{
+                    str=`1~99사이의 숫자만 가능합니다`;
+                }
+            }else{
+                str=`시도횟수 ${count}회가 초과되었습니다. 게임종료`;
+            }
+            document.getElementById('result').innerText=str;
+        }
+    </script>
+</body>
+</html>

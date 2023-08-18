@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식</title>
+</head>
+<style>
+    .green{
+        color: green;
+    }
+    .red{
+        color: red;
+    }
+</style>
+<body>
+    <!-- 
+        input 파일에 파일명.확장자 를 입력하여 전송 버튼을 누르면
+        이미지 파일인지 검사하여
+        이미지 파일이면
+        '정상파일입니다.'<초록색>
+        이미지 파일이 아니면
+        '이미지 파일만 가능합니다'<빨간색>
+        출력하기
+        이미지파일 : jpg, png, jpeg, gif
+        -대문자로 된 확장자명도 판단 가능해야 함.
+     -->
+
+     파일명 : <input type="file" id="fileName">
+     <button type="button" id="subBtn">전송</button>
+     <h3 id="result"></h3>
+     <script>
+        function imgeFileValid(image){
+            //이미지 파일명을 파라미터로 입력받아서 확장자를 체크
+            //이미지 파일 확장자가 맞다면 true, 아니면 false를 리턴
+            let imagefileName = image.toLowerCase(); //소문자로 변환
+            console.log(image);
+            console.log(imagefileName);
+            return imagefileName.endsWith('.png') ? true :
+                   imagefileName.endsWith('.jpg') ? true :
+                   imagefileName.endsWith('.gif') ? true :
+                   imagefileName.endsWith('.jpeg') ? true : false;
+        }
+
+        document.getElementById('subBtn').addEventListener('click', ()=>{
+            let fileName = document.getElementById('fileName').value;
+            let imgTrue = `<span class='green'>정상 파일입니다.</span>`;
+            let imgFalse = `<span class='red'>이미지 파일만 가능합니다.</span>`;
+            document.getElementById('result').innerHTML=
+            imgeFileValid(fileName) ? imgTrue : imgFalse;
+        })
+     </script>
+
+     <!-- <input type="text" id="filetext">
+     <button type="button" id="btn">전송</button>
+     <h3 id="result">이미지파일 검색</h3>
+     <script>
+        function fileName(filetext){
+            if(filetext.match(/(.jpg|.png|.jpeg|.gif)$/g)){
+                console.log("이미지파일:"+filetext);
+                document.getElementById('result').style.color='green';
+                return `정상파일입니다`;
+            }else{
+                document.getElementById('result').style.color='red';
+                return `이미지 파일만 가능합니다`;
+            }
+        }
+        document.getElementById('btn').addEventListener('click',()=>{
+            let filetext = document.getElementById('filetext').value;
+            document.getElementById('result').innerHTML=fileName(filetext);
+        })
+     </script> -->
+
+</body>
+</html>

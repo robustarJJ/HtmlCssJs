@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단10문제 맞추기</title>
+</head>
+<body>
+    <h1>
+        구구단 영역(2*1=2 ~ 9*9=81)내에서 랜덤으로 문제를 내면 정답을 맞추는 로직
+    </h1>
+    <ul>
+        <li>
+            총 문제는 10문제 출제
+        </li>
+        <li>
+            문제를 풀 때 정답, 오답의 결과를 나타냄
+        </li>
+        <li>
+            총 10개의 문제중 정답률을 출력
+        </li>
+    </ul>
+    <br><br>
+
+    <button type="button" onclick="questBtn()">문제출제</button>
+    <h3>
+        <ol id="quest">
+
+        </ol>
+    </h3>
+    <button type="button" onclick="resultQuiz()">정답확인</button>
+    <h3 id="result"></h3>
+
+    <script>
+        let ran1 = 0;
+        let ran2 = 0;
+        let multi = [];
+        let count = 10;
+        let userAnsInt = [];
+        let answer = 0;
+
+        function questBtn() {
+            const quiz = document.getElementById('quest');
+            quiz.innerHTML = '';
+            for (let i = 1; i <= count; i++) {
+                ran1 = Math.floor(Math.random() * 9) + 1;
+                ran2 = Math.floor(Math.random() * 9) + 1;
+                multi[i] = ran1 * ran2;
+                quiz.innerHTML += `<li>${ran1} x ${ran2} = <input type="text" id="userAns${i}"></li>`;
+                console.log(`${i}) ${ran1} x ${ran2} = <input type="text" id="userAns${i}">`); //콘솔 확인용
+            }
+        }
+
+        function resultQuiz() {
+            for (let i = 1; i <= count; i++) {
+                userAnsInt[i] = document.getElementById(`userAns${i}`).value;
+                console.log(userAnsInt[i]); //콘솔 확인용
+                if (userAnsInt[i] == multi[i]) {
+                    console.log(`정답`); //콘솔 확인용
+                    document.getElementById(`userAns${i}`).style.backgroundColor = 'green';
+                    answer++;
+                } else {
+                    console.log(`틀림`); //콘솔 확인용
+                    document.getElementById(`userAns${i}`).style.backgroundColor = 'red';
+                }
+
+            }
+            document.getElementById('result').innerText = `
+            정답: ${answer}개
+            오답: ${count - answer}개
+            정답률: ${(answer / count) * 100}%
+            `;
+
+            answer = 0; //정답률 초기화
+        }
+
+    </script>
+
+</body>
+</html>

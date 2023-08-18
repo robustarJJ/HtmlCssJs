@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        a의 b제곱을 구하라~!! : Math.pow(a,b)
+    </h1>
+    a: <input type="text" id="a">
+    b: <input type="text" id="b">
+    <button type="button" id="btn">제곱계산</button>
+    <h3 id="result">
+        <!-- 2의 3제곱은 8입니다  -->
+    </h3>
+
+    <script>
+        function calc(a,b){
+            let result =1;
+            let count=0;
+            while(count < b && !(b<1)){
+                result *= a;
+                count++;
+            }
+            document.getElementById('result').innerText =
+            `${a}의 ${b} 제곱은 ${result}입니다`;
+        }
+        document.getElementById('btn').addEventListener('click',()=>{
+            let a = document.getElementById("a").value;
+            let b = document.getElementById("b").value;
+            calc(parseInt(a),parseInt(b));
+        })
+    </script>
+
+</body>
+
+</html>

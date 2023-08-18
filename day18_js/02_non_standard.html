@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비표준 속성</title>
+</head>
+<body>
+    <h1>
+        html 태그의 속성이 제한적임. 사용자(개발자)들에게 표준이 아닌 
+        사용자만의 문법을 설계하여 사용할 수 있도록 하는 속성
+    </h1>
+    <ul>
+        <li>
+            html의 속성이 제한적이므로 데이터 관리 차원에서 개발자들에게 
+            직접 속성을 만들어서 사용할 수 있는 방법을 제공
+        </li>
+        <li>
+            너무 과도하게 사용하면 개발 효율과 가독성이 낮아질 수 있으므로
+            적당히 사용하는 것을 권장
+        </li>
+        <li>
+            태그 속성의 이름을 data- 시작하고, 하이픈(-) 뒤에 특정 의미의
+            이름을 사용할 수 있음. 
+        </li>
+        <li>
+            이 규칙을 자바스크립트에서 인식 할 수 있도록 설계 되어 있음.
+        </li>
+        <li>
+            dataset.name 읽어들임
+            name에 대문자는 허용안됨.  
+            대문자를 사용하더라도 소문자로 변환해서 사용하면 가능
+        </li>
+    </ul>
+    <p id="p" data-pname="first_p">비표준 속성(Non-Standard Attribute)</p>
+    <script>
+        const p = document.getElementById('p');
+        console.log(p);
+        console.log(p.dataset.pname);
+    </script>
+</body>
+</html>

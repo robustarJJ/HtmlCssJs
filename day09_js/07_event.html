@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        .a{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        이벤트 객체는 전역객체로써 모든 태그에 객체를 참조 시킬 수 있다.
+    </h1>
+    <ul>
+        <il>
+            a태그와 button 태그에 이벤트를 주로 참조시켜 클릭에 대한 반응을 기대하게 만드는 구조가 일반적임.
+        </il>
+        <il>
+            a태그는 href 속성에 의해 자체 이동이 구현되어 있기 때문에 이동을 막는 코드가 필요  href="#"
+        </il>
+        <il>
+            화면에 출력 영역 document영역(객체)라고 한다
+        </il>
+        <il>
+            태그는 html element, 속성 attribute, 일반 텍스트는 textNode라고 한다
+        </il>
+        <il>
+            html로 출력 : innerHTML라는 property를 사용
+        </il>
+        <li>
+            text로 출력 : innerText라는 property를 사용
+        </li>
+        <li>
+            객체의 값을 가져올때 (id) : getElementByID('id명');
+        </li>
+        <li>
+            객체의 값을 가져올때 (class) : querySelector('selector');
+        </li>
+    </ul>
+
+    <button type="button" onclick="eventFunc()">클릭1</button>
+    <button type="button" onclick="envntFunc2()">클릭2</button>
+    <button type="button" onclick="alert('경고창 띄우기')">alert</button>
+    <button type="button" id="testBtn">test button</button>
+    <button type="button" onclick="envntFunc4('아하')">클릭4</button>
+    <h1 id="printResult"></h1>
+   
+    <button type="button" onclick="eventFunc3()">클릭3</button>
+    <h1 class="abc"></h1>
+
+
+    <script>
+        function eventFunc(){
+            let printResult = document.getElementById('printResult');
+            console.log(printResult);
+            printResult.innerText="클릭1번 버튼을 누르셨네요???";
+        }
+
+        function envntFunc2(){
+            let printResult = document.getElementById('printResult');
+            printResult.innerHTML=`<span style="color:red">스팬태그를 사용했습니다</span>`;
+        }
+        
+        function envntFunc4(num){
+            let printResult = document.getElementById('printResult');
+            printResult.innerHTML=`<span class='a' style="color:red">스팬태그를 사용했습니다 ${num}</span>`;
+        }
+
+        function eventFunc3(){
+            let abc = document.querySelector('.abc');
+            abc.innerText="되나???";
+        }
+
+        //이벤트 리스너 달기
+        document.getElementById('testBtn').addEventListener('click', ()=>{
+            alert('testButton을 클릭해서 띄운 alert~!');
+        })
+
+
+    </script>
+</body>
+</html>

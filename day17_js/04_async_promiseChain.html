@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Chain</title>
+    <h1>
+        Promise 객체를 리턴하는 함수를 호출하는 함수
+        then 메서드를 사용하여 실행순서를 기다려서 프로미스 객체를 사용
+    </h1>
+    <ul>
+        <li>
+            fetch함수 : 데이터 통신을 위해 제공되는 함수
+            첫 파라미터는 url, 두번째 파라미터 header에 적용될 객체
+        </li>
+        <li>
+            then 메서드 : promise 객체를 리턴하는 함수 및 메서드를 기다려서 
+            다음 순서의 로직을 수행하기 위한 연결기능을 한다. 
+        </li>
+    </ul>
+    <button type="button" id="btn">데이터 가져오기</button>
+    <ul id="result"></ul>
+    <script>
+        document.getElementById('btn').addEventListener('click',()=>{
+            for(let i=1; i<=5; i++){                        //1~5까지 value 값만 가져오는 방법
+                fetch(`https://jsonplaceholder.typicode.com/todos/${i}`)
+                .then(resp=> resp.json())
+                .then(json=> print(json))                   //=> 1번 방법 (funchtion만듬)
+                // .then(json=>{for(const key in json){     //=> 2번 방법
+                //     console.log(key+":"+json[key])
+                // }})
+
+                // .then(json=> console.log(json))          //1번 값만 다 가져오는거
+                .catch(err=>console.log(err)); //error시
+            }
+        })
+
+        function print(obj){
+            for(const k in obj){
+                console.log(`${k} : ${obj[k]}`);
+                document.getElementById('result').innerHTML+=
+                `<li>${k} : ${obj[k]}</li>
+                ----------------------------
+                `;
+            }
+            console.log('-----------------');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

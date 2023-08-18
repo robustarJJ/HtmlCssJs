@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>키보드 이벤트</title>
+</head>
+<body>
+    <h1>
+        키보드 이벤트
+    </h1>
+    <ul>
+        <li>
+            keydown : 키를 누르는 동안
+        </li>
+        <li>
+            keypress : 키를 누르는 순간
+        </li>
+        <li>
+            keyup : 키가 다시 올라오는 순간
+        </li>
+        <li>
+            키 값 : event.key, event.code
+        </li>
+    </ul>
+    <h1>
+        e.type : <span id="type1"></span>
+        e.key : <span id="key1"></span>
+        e.code : <span id="code1"></span>
+    </h1>
+    <h1>
+        e.type : <span id="type2"></span>
+        e.key : <span id="key2"></span>
+        e.code : <span id="code2"></span>
+    </h1>
+    <h1>
+        e.type : <span id="type3"></span>
+        e.key : <span id="key3"></span>
+        e.code : <span id="code3"></span>
+    </h1>
+    입력값 : <input type="text" id="str">
+
+    <script>
+        const type1 = document.getElementById('type1');
+        const key1 = document.getElementById('key1');
+        const code1 = document.getElementById('code1');
+        const type2 = document.getElementById('type2');
+        const key2 = document.getElementById('key2');
+        const code2 = document.getElementById('code2');
+        const type3 = document.getElementById('type3');
+        const key3 = document.getElementById('key3');
+        const code3 = document.getElementById('code3');
+
+        document.getElementById('str').addEventListener('keydown', (e)=>{
+            console.log(e.key);
+            type1.innerText = e.type;
+            key1.innerText = e.key;
+            code1.innerText = e.code;
+        })
+        document.getElementById('str').addEventListener('keypress', (e)=>{
+            // console.log(e.key);
+            type2.innerText = e.type;
+            key2.innerText = e.key;
+            code2.innerText = e.code;
+        })
+        document.getElementById('str').addEventListener('keyup', (e)=>{
+            // console.log(e.key);
+            type3.innerText = e.type;
+            key3.innerText = e.key;
+            code3.innerText = e.code;
+        })
+    </script>
+</body>
+</html>

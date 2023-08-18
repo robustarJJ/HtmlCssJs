@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나이구하기</title>
+</head>
+<body>
+    이름 : <input type="text" id="name"> <br>
+    주문번호 : <input type="text" id="rNum"> <br>
+    <button type="button" onclick="printSCR()">확인</button>
+
+    <h3 id="print">
+        <!-- 이름, 생년월일, 성별, 나이 -->
+    </h3>
+
+    <script>
+        
+        function printSCR(){
+            //오늘날짜 리턴
+            let now = new Date();
+            console.log(now.getFullYear());//연도만 추출
+            let name = document.getElementById("name").value;
+            let rNum = document.getElementById("rNum").value;
+            let birth = rNum.slice(0,2);
+            birth = parseInt(birth); 
+            console.log(birth);
+            let gender = "잘못입력함";
+            let age ="잘못입력함";
+            
+            if(rNum.slice(7,8)==1 || rNum.slice(7,8)==2){
+                age = now.getFullYear() - (1900+birth);
+                console.log(age);
+            }else if(rNum.slice(7,8)==3 || rNum.slice(7,8)==4){
+                age = now.getFullYear() - (2000+birth);
+                console.log(age);
+            }
+
+            
+            
+            if(rNum.slice(7,8)==1 || rNum.slice(7,8)==3){
+                console.log("남자");
+                gender="남자";
+            }else if(rNum.slice(7,8)==2 || rNum.slice(7,8)==4){
+                console.log("여자");
+                gender="여자";
+            }
+        
+            document.getElementById("print").innerText=
+            `
+            이름: ${name}
+            주민번호: ${rNum}
+            나이: ${age}
+            성별: ${gender}
+            `;
+        }
+
+        //오늘날짜 반환
+        let today = new Date();
+        console.log(typeof today);
+        console.log(today.getFullYear()); //년도
+        console.log(today.getMonth()+1); //월 (0~11월 +1)
+        console.log(today.getDate()); //일 반환 1~31
+        console.log(today.getDay()); //요일 (0(일)~6(토))
+        
+        //getHours, minutes, seconds : 시분초 추출
+
+        let today2 = today.toLocaleDateString();
+        console.log(today2);
+        let time = today.toLocaleTimeString();
+        console.log(time);
+
+        console.log(today.toLocaleDateString());
+    </script>
+</body>
+</html>

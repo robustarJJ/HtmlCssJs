@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>할인율 구하기</title>
+</head>
+<body>
+    <!-- 
+        가격과 할인율을 입력받아 할인금액과 지불금액을 구하시오.
+        ex) 50000원 5%할인  할인금액:2500  지불금액:47500
+     -->
+
+     <form action="">
+        <fieldset>
+            가격 : <input type="text" id="price"> 원<br>
+            할인율 : <input type="text" id="discount"> % <br>
+            <button type="button" onclick="showPrice()">할인가격계산</button>
+        </fieldset>
+     </form>
+     <h3 id="total"></h3>
+
+     <script>
+        function showPrice(){
+            let price = document.getElementById("price").value;
+            let discount = document.getElementById("discount").value;
+            let total = document.getElementById('total');
+            
+            price = parseInt(price);
+            discount = Number(discount);
+            let savePrice = price * (discount/100); //할인금액
+            let salePrice = price - savePrice; //지불금액
+
+            document.getElementById('total').innerText=
+            `가격: ${price}, 할인율: ${discount}, 할인금액: ${savePrice}, 지불금액: ${salePrice}`;
+        }
+     </script>
+
+</body>
+</html>

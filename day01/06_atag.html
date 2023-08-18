@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a tag</title>
+</head>
+<body>
+    <!-- 
+        a tag
+        - 다른 페이지로 이동하게 하는 태그, 다운로드 가능하게 하는 태그
+        - <a> 태그 안쪽 글자에 링크가 걸림 </a>
+        - href 속성
+            - 이동할 url, url이 없다면 현재 페이지에서 새로고침
+            - 속성 값에 //, http:// url로 인식, 없다면 파일로 인식
+            - tel: 값이 나오면 핸드폰으로 연결, 모바일에서 사용
+            - mailto: 이메일로 연결
+        - target 속성
+            - _self : 현재창에서 연결, 기본값.
+            - _blank : 새창에서 연결
+            - _parent : 부모창에서 링크 연결 (결제창 처럼 팝업창이 뜨고(자식창) 팝업창의 값을 반영하여 원래의 창(부모창)이 변경될 경우 사용 )
+            - _top : 최고 조상에서 연결, 부모가 없으면(조상이 없다.) _self와 동일. -다중 팝업이 뜰 경우 해당.
+        - download 속성
+            - download 속성을 추가하면 해당 파일을 다운로드 함.
+            - href 속성은 파일이어야 함.
+     -->
+
+     <!-- 현재창 -->
+     <a href="http://www.naver.com" target="_self">naver</a>
+     <br>
+     <!-- 새창 -->
+     <a href="http://www.google.com" target="_blank">google</a>
+     <br>
+     <!-- 파일로 연결 -->
+     <a href="02_text연습문제.html" target="_blank">파일인식</a>
+     <br>
+     <!-- 다운로드 -->
+     <a href="02_text연습문제.html" download="">파일다운로드</a>
+     <br>
+     <!-- tel -->
+     <a href="tel:+8201011111111">전화문의</a>
+     <br>
+     <!-- milto -->
+     <a href="mailto:abc@naver.com">메일로 문의하기</a>
+     <br>
+    
+</body>
+</html>

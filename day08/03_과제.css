@@ -1,0 +1,60 @@
+@import url(01_reset.css);
+@keyframes rotate{
+    0%{ transform: rotate(0deg); }
+    100%{ transform: rotate(360deg); }
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5),  rgba(0,0,0,0.5)), url(/image/항공사진.jpg);
+    background-size: cover;
+    margin: auto;
+    position: relative;
+
+}
+
+.main{
+    width: 600px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-top: 20px;
+    text-align: center;
+}
+.container img{
+    width: 50px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+.container h1{
+    font-size: 25px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 15px;
+    line-height: 30px;
+}
+h3{
+    font-size: 10px;
+    margin-bottom: 15px;
+    
+}
+.main>div{
+    border-top: 1px solid rgb(99, 99, 99);
+    background-color: rgb(212, 212, 212);
+    padding: 10px 0px 10px 0px;
+}
+.main>div>p{
+    font-size: 10px;
+    line-height: 15px;
+}
+span{
+    margin-bottom: 20px;
+    animation: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+

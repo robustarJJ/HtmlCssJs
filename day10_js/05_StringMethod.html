@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String_Method</title>
+</head>
+<body>
+    <h1>
+        가장 많이 다루는 데이터 타입 : String
+    </h1>
+    <ul>
+        <li>
+            문자열 데이터는 index(0부터 시작)를 가지고 있음.
+        </li>
+        <li>
+            문자열 값 내에서 개행(br)하는 것을 추천하지 않는다.
+        </li>
+        <li>
+            new String() : 객체 타입으로 선언은 가능 / 추천하지 않는다
+        </li>
+        <li>
+            length : 문자열의 총 길이
+        </li>
+    </ul>
+    <ul>
+        <li>
+            문자관련 메서드 : java에서 사용하는 String 메서드와 매우 비슷
+        </li>
+        <li>
+            추출 관련 메서드 : substring(), substr(), slice()
+        </li>
+        <li>
+            문자 대체 메서드 : replace(old, new) : 첫번째 매칭되는 문자만, 대소문자 구분
+        </li>
+        <li>
+            trim() : 양쪽 공백 제거
+        </li>
+        <li>
+            padStat(길이, 채울문자) / pedEnd(길이, 채울문자)
+            앞쪽에서 / 뒷쪽에서 채우기
+            001212-******* / 서울******
+        </li>
+        <li>
+            charAt(index) : 해당 index 문자 추출
+        </li>
+        <li>
+            indexOf("str") : 해당 문자열의 위치 반환
+        </li>
+        <li>
+            startWith("str") / endWith("str") : 해당 문자열이 앞 / 뒤에 존재하는지 확인하는 메서드
+            return => true / false
+        </li>
+    </ul>
+
+    <script>
+        let str1 = "Apple, Banana, Orange";
+        console.log(str1.slice(0,5)); //Apple
+        //slice는 substring과 사용방법이 같음
+        //slice는 index -를 입력하면 뒤에서부터 추출가능.
+        console.log(str1.slice(-6)); //Orange
+
+        //subString(startindex, endindex); // endindex는 포함안함
+        //substr(startindex, count);
+
+        let text = "Hello java Warld~!! java"
+        let newText = text.replace("java", "javascript");
+        console.log(newText);
+        //정규식패턴을 사용할 수 있음.
+        // /text/i , /text/g : 전역검색
+        newText = text.replace(/JAVA/i, "javascript"); //대소문자 구분x
+        newText = text.replace(/JAVA/g, "javascript"); //전체 검색 변경
+        console.log(newText);
+
+        let padText = "abc";
+        console.log(padText.padEnd(20,"-"));
+
+        //001212-1234567 > 001212-1******
+        let rNum = "001212-3234567";
+        let rNumLen =rNum.length;
+        console.log(rNum.slice(0,8).padEnd(rNumLen,"*"));
+
+        // if문 사용
+        if(rNum.substring(7,8)==1 || rNum.substring(7,8)==3){
+            console.log("남자");
+        }else if(rNum.substring(7,8)==2 || rNum.substring(7,8)==4){
+            console.log("여자");
+        }
+
+        console.log("--------------------------------------------")
+        //파일명 추출
+        let fullFileName = "20230728_javascript.string_method.html"
+
+        //string_method 추출
+        let file = fullFileName.slice(fullFileName.indexOf(".")+1, 
+        fullFileName.lastIndexOf("."));
+        console.log(file);
+        //작성일자 추출
+        let date = fullFileName.slice(0, fullFileName.indexOf("_"));
+        console.log(date);
+        //확장자 추출
+        let full = fullFileName.slice(fullFileName.lastIndexOf(".")+1);
+        console.log(full);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map 예제</title>
+</head>
+<body>
+    <!-- 
+        input 2개 생성
+        과목, 점수
+        추가버튼 => map추가
+        출력버튼 => map을 출력 ul=>li로 출력
+        결과버튼 => 합계, 평균, 평가 (80이상이면 통과, 아니면 탈락) => h3
+     -->
+     <h3>과목: <input type="text" id="sub"></h3>
+     <h3>점수: <input type="text" id="score"></h3>
+     <button type="button" onclick="subAdd()">과목추가</button>
+     <button type="button" onclick="subPrint()">과목출력</button>
+     <button type="button" onclick="subResult()">과목평가</button>
+
+
+     <h3>
+        <ul id="result"></ul>
+     </h3>
+     <h3 id="result2"></h3>
+
+
+     <script>
+        const myMap = new Map();
+        function subAdd(){
+            myMap.set(sub.value,score.value);
+            console.log(myMap);
+        }
+
+        function subPrint(){
+            document.getElementById('result').innerHTML=null; //출력화면초기화
+
+            myMap.forEach(function(v,i){
+            console.log(i,v);
+            document.getElementById('result').innerHTML+=
+            `
+            <li>과목: ${i}</li>
+            <li>점수: ${v}</li>
+            <br>
+            `;
+            })
+        }
+         
+        function subResult(){
+            let sum = 0;  
+            myMap.forEach(function(v,i){
+                v=Number(v);
+                sum+=v;
+            })
+
+            let age = (sum/myMap.size).toPrecision(3);
+            let res ='';
+
+            if(age>=80){
+                res='합격';
+            }else{
+                res='불합격';
+            }
+             
+            document.getElementById('result2').innerHTML=
+            `
+            <li>과목합계점수: ${sum} </li>
+            <li>과목합계평균: ${age} </li>
+            <li>평가: ${res} </li>
+            `;
+        }
+
+     </script>
+
+
+
+</body>
+</html>

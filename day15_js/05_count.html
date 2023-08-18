@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>count 만들기</title>
+    <style>
+        h1{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        button을 2개 준비
+        + / -
+          0   => h1     최소값 0
+     -->
+
+    <button type="button" onclick="buttonP()"><h1> + </h1></button>
+    <button type="button" onclick="buttonM()"><h1> - </h1></button>
+    <h1 id="result">
+        0
+    </h1>
+
+    <script>
+        let count = 0;
+
+        document.addEventListener('keydown', (event) =>{
+
+        if(event.key == '+'){
+            count++;
+            document.getElementById("result").innerText = `${count}`;
+        }else{
+            if(count>0){
+                count--;
+                document.getElementById("result").innerText = `${count}`;
+                }
+            }
+        });
+
+
+        function buttonP(){  
+                count++;
+                document.getElementById("result").innerText = `${count}`;       
+        }
+    
+        function buttonM(){
+            if(count>0){
+                count--;
+                document.getElementById("result").innerText = `${count}`; 
+            }     
+        }
+    
+    </script>
+</body>
+</html>

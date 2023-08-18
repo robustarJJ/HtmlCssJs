@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 준비물</title>
+    <style>
+        
+                .title{
+        
+                    text-align: center;
+        
+                    font-size: 30px;
+        
+                    margin-top: 50px;
+        
+                    margin-bottom: 50px;
+        
+                }
+        
+                .outer{
+        
+                    text-align: center;
+        
+                    margin: auto;
+        
+                    width: 1000px;
+        
+                    height: 100px;
+        
+                    background-color: rgb(231, 255, 218);
+        
+                }
+        
+                #addlist{
+        
+                    width: 500px;
+        
+                    height: 40px;
+        
+                    margin-top: 30px;
+        
+                    border: none;
+        
+                    outline: none;
+        
+                    padding-left: 15px;
+        
+                }
+        
+                #btn{
+        
+                    /* margin-top: 30px; */
+        
+                    width: 40px;
+        
+                    height: 40px;
+        
+                    font-size: 25px;
+        
+                    background-color: rgb(255, 255, 255);
+        
+                    border: none;
+        
+                    cursor: pointer;
+        
+                }
+        
+                #tlist{
+        
+                    margin: auto;
+        
+                    width: 960px;
+        
+                    list-style: none;
+        
+                    line-height: 50px;
+        
+                }
+        
+                #result{
+        
+                    margin-left: -40px;
+        
+                }
+        
+            </style>
+        
+        </head>
+        
+        <body>
+        
+            <div class="title">여행 준비물 점검 목록</div>
+        
+            <div class="outer">
+        
+                <input type="text" id="addlist" placeholder="여행 준비물 추가하기">
+        
+                <button type="button" id="btn" autofocus="true" onclick="travelList()">+</button>
+        
+            </div>
+        
+            <div>
+        
+                <ul id="tlist">
+        
+                    <li><div id="result"></div></li>
+        
+                </ul>
+        
+            </div>
+        
+            
+        
+            <script>
+        
+                const btn = document.getElementById('btn');
+        
+                let addlist = document.getElementById('addlist');
+        
+                let result = document.getElementById('result');
+        
+        
+                function travelList(){
+        
+                    let randomcolor1 = Math.floor(Math.random()*30)+220;
+        
+                    let randomcolor2 = Math.floor(Math.random()*30)+220;
+        
+                    let randomcolor3 = Math.floor(Math.random()*30)+220;
+        
+                    let list = document.createElement("li");
+        
+                    let del = document.createElement("button");            
+        
+                    list.innerHTML=addlist.value;
+
+                    document.getElementById('addlist').focus();
+        
+                    result.appendChild(list);
+        
+                    list.appendChild(del);
+        
+        
+                    del.innerText="X";
+        
+                    del.addEventListener("click", deleteList);
+        
+                    del.style.float="right";
+        
+                    del.style.marginTop="15px";
+        
+                    del.style.border="none";
+        
+                    del.style.paddingRight="20px";
+        
+                    del.style.backgroundColor="rgba(255, 255, 255, 0)";
+        
+                    
+        
+                    list.style.backgroundColor=`rgb(${randomcolor1},${randomcolor2},${randomcolor3})`;
+        
+                    addlist.value="";
+        
+                }
+        
+        
+                function deleteList(e){
+        
+                    let removelist = e.target.parentElement;
+        
+                    removelist.remove();
+        
+                }
+        
+            </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setInterval</title>
+    <style>
+        #result{
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    </h3>
+        <button type="button" id="start">시작</button>
+        <button type="button" id="end">끝</button>
+        <h1 id="result">
+        3초 후에 글자가 나타납니다.
+    </h1>
+    <a href="07_location.html">07_location</a>
+    <script>
+        let intervalObj;
+
+        function startColor(){
+            intervalObj = setInterval(flashColor, 300);
+        }
+
+        function stopColor(){
+            clearInterval(intervalObj);
+        }
+
+        function flashColor(){
+            let h1 = document.getElementById('result');
+            h1.style.color=(h1.style.color == 'white'? 'black' : 'white');
+            h1.style.backgroundColor = (h1.style.backgroundColor == 'brown'? 'yellow' : 'brown')
+        }
+
+        document.getElementById('start').addEventListener('click', startColor);
+        document.getElementById('end').addEventListener('click', stopColor);
+    </script>
+</body>
+</html>

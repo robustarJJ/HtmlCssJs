@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list tag</title>
+</head>
+<body>
+    <!-- 
+        list는 상/하 목록으로 구성되어 있는 상황을 나타낼때 사용
+        - ol : 순서가 있는 리스트, 번호로 표현
+        - ul : 순서가 없는 리스트, 모양으로 표현
+            - li : ol 또는 ul 태그 안에서 하위 목록을 구성
+        - ol 태그의 속성
+            - type : 숫자의 형태를 정해주는 속성
+            - 기본 : 1, A, a, i, I
+        - ul 태그의 속성
+            - type : 기호를 정해주는 속성
+            - 기본 : ● (desc) / ○(circle) / ■ (square)
+        - 메뉴바를 구성할 때 사용
+        - 메인메뉴, 서브메뉴 구성할 때 사용
+     -->
+     <div>
+        오늘의 할일
+        <ol type="A">
+            <li>출근</li>
+            <li>오전수업</li>
+            <li>점심</li>
+            <li>오후수업</li>
+            <li>저녁</li>
+            <li>저녁수업</li>
+            <li>퇴근</li>
+        </ol>
+
+        점심메뉴
+        <ul>
+            <li>김치찌개</li>
+            <li>된장찌개</li>
+            <li>짜장면</li>
+            <li>짬뽕</li>
+            <li>탕슉</li>
+        </ul>
+     </div>
+     <!-- 리스트는 서로 중첩될 수 있음. -->
+     <h1>리스트는 중첩 될 수 있다.</h1>
+     <ul>
+        <li>HTML</li>
+            <ol>
+                <li>Html Element</li>
+                <li>Attribute</li>
+                <li>input, link, image...</li>
+            </ol>
+        <li>CSS</li>
+            <ol>
+                <li>select</li>
+                <li>color</li>
+                <li>style</li>
+            </ol>
+        <li>Javascript</li>
+            <ol>
+                <li>변수</li>
+                <li>조건문</li>
+                <li>반복문</li>
+            </ol>
+     </ul>
+</body>
+</html>

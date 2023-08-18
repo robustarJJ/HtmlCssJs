@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>조건문</title>
+</head>
+<body>
+    <h1>조건문</h1>
+    <ul>
+        <li>
+            조건문은 JAVA에서의 조건문과 동일
+        </li>
+        <li>
+            if, if ~ else, if ~ elseif() 동일한 문법 구조를 가지고 있음.
+        </li>
+        <li>
+            switch() : 동일한 문법 구조를 가짐
+        </li>
+    </ul>
+
+    <script>
+        let num = 10;
+        if(num % 2 == 0){
+            console.log("짝수");
+        }else{
+            console.log("홀수");
+        }
+
+        switch(num % 2){
+            case 0 : console.log("짝수~!!"); break;
+            case 1 : console.log("홀수~!!"); break;
+            default : console.log("이상한 수~!!");
+        }
+    </script>
+</body>
+</html>

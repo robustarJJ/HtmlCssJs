@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position Ex</title>
+    <style>
+        .outer{
+            position: relative;
+            height: 200px;
+            background-color: bisque;
+        }
+        .inner{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            background-color: aqua;
+        }
+        .inner:nth-child(1){
+            background-color: red;
+            top: 25px;
+            left: 20px;
+        }
+        .inner:nth-child(2){
+            background-color: chocolate;
+            top: 25px;
+            left: 50%;
+            transform: translate(-50%);
+            /* transform: translate(x축, y축); */
+        }
+        .inner:nth-child(3){
+            background-color: aqua;
+            top: 25px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+</body>
+</html>

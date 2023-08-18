@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h2>
+        JSON(JavaScript Object Notation) : 텍스트 데이터를 사용하여 
+        데이터를 저장하고, 전송, 데이터 공유를 위한 개방형 표준 파일 형식
+    </h2>
+    <ul>
+        <li>
+            데이터 구조화 : 많은량의 데이터가 실시간으로 전달되어야 할때 가장 효율적인 방식
+        </li>
+        <li>
+            구조화된 텍스트를 만들기 위해 JSON 데이터를 많이 활용하고 있음.
+        </li>
+        <li>
+            자바 스크립트의 객체 형식을 갖고 있기 때문에 구조 파악이 쉽고, 제작도 쉽다.
+        </li>
+        <li>
+            특히 웹 분야의 자바스크립트가 모든 프론트에 호환이 된다는 점을 활용
+        </li>
+        <li>
+            데이터 수집, 출력용으로 거의 모든 플랫폼 서비스에서 사용되고 있음.
+        </li>
+    </ul>
+
+    <script>
+        //https://finance.naver.com/ 의 top종목의 데이터를 구조화 해보기=> JSON 형식으로...
+        
+        const toptop = {
+            '거래상위' : [
+                {
+                    name:'KODEX 코스닥150선물',
+                    price: 3545,
+                    updown: 155,
+                    ratio: 4.57,
+                },
+                {
+                    name:'KODEX 200선물인버스2X',
+                    price: 2470,
+                    updown: 110,
+                    ratio: 4.66,
+                },
+                {
+                    name:'상보',
+                    price: 2095,
+                    updown: 382,
+                    ratio: 22.30,
+                },
+                {
+                    name:'신성이엔지',
+                    price: 2830,
+                    updown: 15,
+                    ratio: 0.53,
+                },
+                {
+                    name:'크리스탈신소재',
+                    price: 3050,
+                    updown: 415,
+                    ratio: 15.75,
+                }
+            ],
+            '상승' : [],
+            '하락' : [],
+            '시가총액상위' : []
+        }
+
+        const exs = {
+            '환전고시환율' : [
+                {
+                    name: '미국USD',
+                    price: 1296.50,
+                    updown: 6.00,
+                },
+                {
+                    name: '일본JPY (100엔)',
+                    price: 908.26,
+                    updown: 7.86,
+                },
+                {
+                    name: '유럽연합EUR',
+                    price: 1423.30,
+                    updown: 8.14,
+                },
+                {
+                    name: '중국CNY',
+                    price: 180.41,
+                    updown: 0.68,
+                }
+            ],
+            
+            '금 시세' : [
+                {
+                    name: '국제금(08.01)',
+                    price: 1978.80,
+                    updown: 30.40,
+                },
+                {
+                    name: '국내금(08.02)',
+                    price: 81330.84,
+                    updown: 482.93,	
+                }
+            ],
+            
+        }
+
+        
+            
+        
+    </script>
+</body>
+</html>

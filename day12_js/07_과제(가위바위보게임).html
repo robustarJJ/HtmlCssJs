@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가위바위보게임</title>
+    <!-- 
+        당신 : 보
+        컴퓨터 : 가위
+        졌습니다
+        현재 전적
+        승
+        무 
+        패
+        승률
+     -->
+</head>
+<body>
+    <button type="button" onclick="play(1);">
+        <img src="/image/가위.jpg" alt="">
+    </button>
+    <button type="button" onclick="play(2);">
+        <img src="/image/바위.jpg" alt="">
+    </button>
+    <button type="button" onclick="play(3);">
+        <img src="/image/보.jpg" alt="">
+    </button>
+    <h3 id="result">
+        <!-- 결과출력라인 -->
+    </h3>
+
+    <script>
+
+        let win=0;
+        let lose=0;
+        let draw=0;
+        let rate=0;
+        let turn=0;
+        let count=0;
+        
+        function play(user){
+        let playchice;
+        let comchice;
+        let com = Math.floor(Math.random()*3)+1;
+        let result_win;
+        let result_draw;
+        let result_lose;
+        turn++;
+
+        if(user==com){
+            draw++;
+            result_draw='비겼습니다';
+            result_win='';
+            result_lose='';
+        }else if(user==1 && com==3){
+            win++;
+            result_win='이겼습니다';
+            result_draw='';
+            result_lose='';
+            count++;
+        }else if(user==3 && com==1){
+            lose++;
+            result_lose='졌습니다';
+            result_win='';
+            result_draw='';
+            count++;
+        }else if(user>com){
+            win++;
+            result_win='이겼습니다';
+            result_draw='';
+            result_lose='';          
+            count++;
+        }else{
+            lose++;
+            result_lose='졌습니다';
+            result_win='';
+            result_draw='';
+            count++;
+        }
+        console.log(`유저`+user);
+        console.log(`컴터`+com);
+        console.log("승:",win, " 무:",draw, " 패:",lose);
+
+        if(user==1){
+            playchice='가위';
+        }else if(user==2){
+            playchice='바위';
+        }else{
+            playchice='보';
+        }
+    
+        if(com==1){
+            comchice='가위';
+        }else if(com==2){
+            comchice='바위';
+        }else{
+            comchice='보';
+        }
+
+        rate = ((win/count)*100).toPrecision(3);
+        document.getElementById('result').innerHTML=
+        `
+        <h2>${turn} 라운드<br></h2>
+        당신: ${playchice}<br>
+        컴퓨터: ${comchice}<br>
+
+        <h3 class="win_color">
+        ${result_win}</h3>
+        <style>
+            .win_color{
+            color: blue;
+            }
+        </style>
+        <h3 class="draw_color">
+        ${result_draw}</h3>
+        <style>
+            .draw_color{
+            color: orange;
+            }
+        </style>
+        <h3 class="lose_color">
+        ${result_lose}</h3>
+        <style>
+            .lose_color{
+            color: red;
+            }
+        </style>
+
+        현재전적<br>
+        승:${win}<br>
+        무:${draw}<br>
+        패:${lose}<br>
+        승률:${rate}<br>
+        `;
+    }
+    </script>
+
+</body>
+</html>

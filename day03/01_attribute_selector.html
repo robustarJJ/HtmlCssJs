@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute selector</title>
+</head>
+    <style>
+        input[type=text]:focus{
+            background-color: bisque;
+        }
+        input[type=password]:focus{
+            background-color: aquamarine;
+        }
+        button[type=button]{
+            background-color: rgb(189, 180, 248);
+        }        
+        button[type=reset]:hover{
+            background-color: brown;
+        }
+        .login{
+            font-size: 20px;
+            font-weight: 20px;
+        }
+    </style>
+<body>
+    <!-- 태그가 가지고 있는 속성을 이용하여 선택하는 선택자 -->
+    <!-- 태그명[속성=값] -->
+    <form action="">
+        <div>
+            <label for="id">user ID</label>
+            <input type="text" class="login" id="id" name="id" placeholder="8자 이상" required>
+        </div>
+        <div>
+            <label for="pw">User PW</label>
+            <input type="password" class="login" id="pw" name="pw" placeholder="비밀번호 8자 이상" required>
+        </div>
+        <div>
+            <label for="pin">User PIN</label>
+            <input type=" password" class="login" name="pin" id="pin" placeholder="숫자만" required>
+        </div>
+        <button type="button">일반버튼</button>
+        <button type="submit">전송버튼</button>
+        <button type="reset">취소버튼</button>
+    </form>
+</body>
+</html>

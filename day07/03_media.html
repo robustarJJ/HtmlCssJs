@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>media query</title>
+    <!-- 
+        media-query : 반응형 화면을 만들기 위한 태그
+        max-width / min-width를 이용하여
+        디스플레이 사이즈에 따라
+        화면의 배치 혹은 display를 변경하는 태그
+        일반적으로 iphone / 폰 320px  pad 768px  display 800px
+     -->
+</head>
+<style>
+    .title{
+        font-size: 40px;
+    }
+    @media screen and (max-width : 600px) {
+        .title{
+            font-size: 20px;
+        }
+    }
+</style>
+<body>
+    <div class="title">
+        <h1>Hello, World</h1>
+        <h3>font-size 변경</h3>
+    </div>
+</body>
+</html>

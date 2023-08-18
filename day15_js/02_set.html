@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set</title>
+</head>
+<body>
+    <h1>
+        자바스크립트의 데이터 타입의 확장 개념
+        집합 데이터를 다룰 수 있는 객체
+    </h1>
+    <ul>
+        <li>
+            set은 중복데이터 허용x : 중복데이터가 들어오면 체크 후 하나만 남김
+        </li>
+        <li>
+            set() : 파라미터는 주로 배열을 사용, 배열의 index, value 값을 활용하여 집합데이터를 만듦
+        </li>
+        <li>
+            set 전용 메서드들이 있음.
+        </li>
+        <li>
+            new set() or new set(array) : set 객체를 생성 및 초기화
+        </li>
+        <li>
+            set.add(value) : 데이터 추가
+        </li>
+        <li>
+            set.delete(value) : 데이터 삭제
+        </li>
+        <li>
+            set.has(value) : 데이터의 존재 여부 확인 true / false 리턴
+        </li>
+        <li>
+            set.forEach(callback function) : set 순환
+        </li>
+        <li>
+            set.entries(), set.keys(), set.values() : 리턴 타입 => setIterator 형식
+            별도의 메서드를 활용하여 접근 (for of )
+        </li>
+        <li>
+            set.size : set의 개수
+        </li>
+    </ul>
+
+    <script>
+        const testSet = new Set(['html', 'css','js']);
+        console.log(testSet);
+        testSet.add('react');
+        console.log(testSet);
+        console.log(testSet.size);
+        testSet.delete('html');
+        console.log(testSet);
+        console.log(testSet.has('css'));
+        console.log(testSet.has('html'));
+        console.log("------------------------")
+
+        testSet.forEach(function(e,i,s){
+            console.log(i,e,s);
+        })
+
+        //SetIterator : set의 상위 인터페이스 규격
+        //entries() : pair 값으로 가져온다.
+        console.log(testSet.entries());
+        console.log(testSet.keys());
+        console.log(testSet.values());
+
+        //for of : Symbol.iterator 속성을 가지는 컬렉션에서 적용
+        //반복이 가능한 요소 : 배열, map, set iterable한 요소
+
+        for(const iter of testSet.entries()){
+            //iter의 속성은 배열
+            console.log(iter);
+            iter.forEach(function(v,i,s){
+                console.log(i,v);
+            })
+        }
+
+        for(const iter of testSet.keys()){
+            console.log(iter);
+        }
+        for(const iter of testSet.values()){
+            console.log(iter);
+        }
+
+        testSet.clear(); //set 비우기
+        console.log(testSet);
+        
+
+    </script>
+
+</body>
+</html>

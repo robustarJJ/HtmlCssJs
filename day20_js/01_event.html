@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        .container{
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            padding-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        document 영역에서 사용되는 이벤트를 정의
+    </h1>
+    <ul>
+        <li>
+            마우스, 키보드, 실행 등등 이벤트 종류가 매우 많기 때문에
+            웹에서 사용하는 이벤트를 기준으로 학습
+        </li>
+        <li>
+            마우스 이벤트 : click(), focus(), input(), change(), 
+            mouseover(), mouseout(), scroll(), load() ...
+        </li>
+        <li>
+            키보드 이벤트 : keyDown(), keyPress(), keyUp() ...
+        </li>
+        <li>
+            기타 이벤트 관련 된 메서드 : preventDefault(), target, submit()
+        </li>
+        <li>
+            addEventListener('eventName', callbackFunction)
+            메서드를 사용하는 것을 권장
+            같은 엘리먼트에 여러 이벤트를 중복 부여 가능.
+        </li>
+    </ul>
+    <div class="container">
+        <img id="pic" src="/image/cat1.jpg" alt="">
+    </div>
+    <script>
+        let pic = document.getElementById('pic');
+        pic.addEventListener('mouseover', ()=>{
+            pic.src="/image/cat2.jpg";
+        })
+
+        pic.addEventListener('mouseout', ()=>{
+            pic.src="/image/cat1.jpg";
+        })
+    </script>
+</body>
+</html>

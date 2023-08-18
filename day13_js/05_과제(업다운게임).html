@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Up Down Game</title>
+</head>
+<body>
+    <h1>Up Down Game</h1>
+    <ol>
+        <li>랜덤 숫자 만들기 버튼을 클릭하면 컴퓨터가 랜덤으로 1~99(포함)의 숫자 1개를 생성한다.</li>
+        <li>숫자가 생성되면 컴퓨터가 랜덤으로 숫자를 생성하였습니다 라는 안내 문구가 출력된다.</li>
+        <li>input란에 1~99(포함)숫자를 입력하고 맞추기라는 버튼을 클릭하면</li>
+        <li>컴퓨터의 숫자보다 높은 숫자이면 Down을 출력, 낮은 숫자면 Up을 출력</li>
+        <li>컴퓨터의 숫자를 맞추면 정답입니다~ 컴퓨터 숫자는 ? 이었습니다 라는 메시지 출력</li>
+        <li>5회 이상 틀리면 게임 종료 컴퓨터가 승리</li>
+    </ol>
+    <br>
+    <button type="button" id="rbtn" onclick="random()">랜덤 숫자 생성 버튼</button>
+    <button type="button" onclick="window.location.reload();">다시시도</button>
+    <h4 id="result1"></h4>
+    <h3 id="result"></h3>
+    <input type="number" id="num">
+    <button type="button" id="btn">정답!!</button>
+
+    <script>
+        let round=0;
+        let randomNumber;
+        let updownText='';
+        let finalRound=5;
+
+        function random(){
+            randomNumber = Math.floor(Math.random()*99)+1;
+            round = 0;
+            return `
+            컴퓨터가 랜덤으로 1~99 사이의 숫자를 생성하였습니다<br>
+            ${finalRound}라운드 안에 정답을 맞춰 주세요.
+            `;
+        }
+
+        function updown(num){
+            if(round<finalRound){
+                round++;
+                if(randomNumber>num){
+                    updownText='UP!';
+                }else if(randomNumber<num){
+                    updownText='DOWN!';
+                }else if(randomNumber==num){
+                    updownText="정답!";
+                    return ` 
+                    ${round}라운드<br>
+                    ${updownText} 입니다.<br>
+                    컴퓨터의 숫자는 ${randomNumber}이었습니다.`;
+                }
+                
+                return `
+                ${round}라운드<br>
+                ${updownText}
+                `;     
+            }else{
+                return`
+                ${finalRound}라운드 안에 정답을 맞추지 못했습니다.<br>
+                컴퓨터의 숫자는 ${randomNumber}이었습니다.
+                `
+            }  
+        }
+
+        document.getElementById('btn').addEventListener('click',()=>{
+            let num = document.getElementById('num').value;
+            console.log(randomNumber); //콘솔창으로 정답보기
+            console.log(num);
+            console.log(updownText);
+            document.getElementById('result').innerHTML=updown(num);
+        })
+        document.getElementById('rbtn').addEventListener('click',()=>{
+            document.getElementById('result1').innerHTML=random();
+        })
+    </script>
+</body>
+</html>

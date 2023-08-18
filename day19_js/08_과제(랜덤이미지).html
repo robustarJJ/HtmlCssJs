@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>랜덤 이미지</title>
+</head>
+<body>
+    <img src="" alt="" id="img">
+    <script>
+        let randomimg = ['cat1.jpg','cat2.jpg','dog1.jpg','dog2.jpg'];
+        function randomImg(){
+            let randomindex = Math.floor(Math.random()*4);
+            document.getElementById('img').src=`/image/${randomimg[randomindex]}`;
+        }
+        setInterval(randomImg,1000);
+
+    </script>
+</body>
+</html>

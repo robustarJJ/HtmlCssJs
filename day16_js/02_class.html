@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스, 객체, 생성자</title>
+</head>
+<body>
+    <h1>
+        클래스, 객체, 생성자
+    </h1>
+    <script>
+        class Car{
+            //자바 스크립트에서는 생성자는 1개만 허용
+            constructor(name, year){
+                this.name = name;
+                this.year = year;
+                this.model ='';
+            }
+        }
+
+        let myCar = new Car('소나타',2021);
+        console.log(myCar);
+        let myCar2 = new Car('그렌저',2023);
+        console.log(myCar2);
+        let myCar3 = new Car();
+        myCar3.name='아반떼';
+        myCar3.year=2023;
+        myCar3.model='xD';
+        console.log(myCar3);
+        console.log("-------------------");
+        console.log(myCar.name);
+
+        //myCar4 name, year, model을 넣고 출력.
+        let myCar4 = new Car('티코',1990);
+        myCar4.model='오리지널'
+        console.log(myCar4);
+    </script>
+</body>
+</html>

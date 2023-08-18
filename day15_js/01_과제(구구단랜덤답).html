@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 문제</title>
+</head>
+<body>
+    <h1>
+        <button type="button" id="startBtn">문제 출제</button>
+    </h1>
+    <!-- 1.2. -->
+    <ol id="q">
+
+    </ol>
+    <h3>
+        <button type="button" id="compareBtn">정답확인</button>
+    </h3>
+    <h3 id="printRatio"></h3>
+
+    <script>
+        function makeRandomDan(){
+            return Math.floor(Math.random()*8)+2; //2~9 8개
+        }
+        function makeRandomIncre(){
+            return Math.floor(Math.random()*9)+1 //1~9 9개
+        }
+
+        let count=0;
+        let quizArea=document.getElementById('q'); //ol태그의 객체가 리턴
+        const ansObj={}; //ans1 : 7 => id: 정답
+
+        document.getElementById('startBtn').addEventListener('click', function(){
+            //문제 출제 구역
+            quizArea.innerHTML=''; //기존 문제가 있다면 누적되지 않게 비우기
+            do{
+                count++; //1부터 시작
+                let dan = makeRandomDan();
+                let incre = makeRandomIncre();
+                let answer = dan*incre; //정답 => 랜덤으로 생성된 값의 정답
+                ansObj[`ans${count}`] = answer; //정답 객체 생성
+
+                let quiz=`<li>`;
+                    quiz+=`${dan} * ${incre} = `;
+                    quiz+=`<input type="text" id="userAns${count}">`;
+                    quiz+=`</li>`;
+
+                    quizArea.innerHTML+=quiz;
+            }while(count<10);
+            console.log(ansObj);
+            count=0;
+        })
+
+        document.getElementById('compareBtn').addEventListener('click', function(){
+            let count2 = 0; //반복변수
+            let correct = 0;  //정답 갯수
+            //정답 비교 구역
+            while(count2<10){
+                count2++;
+                let userInput = document.getElementById(`userAns${count2}`);
+                if(userInput.value == ansObj[`ans${count2}`]){
+                    correct++; //정답 1개추가
+                    userInput.value += ` :정답 `;
+                    userInput.style.backgroundColor = 'green';
+                }else{
+                    userInput.value += ` :오답 `;
+                    userInput.style.backgroundColor = 'red';
+                }
+            }
+            document.getElementById('printRatio').innerText = 
+            `정답 개수 : ${correct}개 / 정답률 : ${(correct/count2).toFixed(2)*100}%`;
+
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>과제0728</title>
+    <style>
+        table{
+            border: 1px solid black;
+        }
+        tr, td{
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+<body>
+    <ol>
+        <li>이름</li>
+        <li>거주지</li>
+        <li>
+            좋아하는 리스트
+            <ul>
+                <li>1. </li>
+                <li>2. </li>
+                <li>3. </li>
+            </ul>
+        </li>
+        <li>이메일</li>
+        <li>pet 소유 여부</li>
+        <li>지금 가장 원하는 것</li>
+    </ol>
+    <h3>리스트의 구조에 따라 자바스크립트 객체를 만들어보자</h3>
+
+    <!-- 입력받을 input 구조 생성 -->
+    <form action="">
+        <fieldset>
+            이름: <input type="text" id="name"><br>
+            거주지: <input type="text" id="addr"><br>
+            좋아하는 리스트
+            <ol>
+            <li>
+                <input type="text" id="favor1">
+            </li>
+            <li>
+                <input type="text" id="favor2">
+            </li>
+            <li>
+                <input type="text" id="favor3">
+            </li>
+            </ol>
+            이메일: <input type="text" id="email"><br>
+            펫 소유 여부: <input type="text" id="pet"><br>
+            지금 가장 원하는 것: <input type="text" id="wanna"><br>
+            <button type="button" onclick="getDatas()">콘솔에 입력</button>
+            <button type="button" onclick="showTable()">화면에 출력</button>
+        </fieldset>
+    </form>
+
+    <table id="table" border="1"></table>
+
+    <script>
+        const dataObj = {
+            name:"",
+            addr:"",
+            favors:{
+                favor1:"",
+                favor2:"",
+                favor3:"",
+            },
+            email:"",
+            pet:"",
+            wanna:""
+        };
+
+        //위 html에서 받은 값을 객체에 저장 후 콘솔에 출력
+        //let 변수명 = 값;
+        //변수명 = 값;
+        function getDatas(){
+            dataObj.name = document.getElementById('name').value;
+            dataObj.addr = document.getElementById('addr').value;
+            dataObj.favor1 = document.getElementById('favor1').value;
+            dataObj.favor2 = document.getElementById('favor2').value;
+            dataObj.favor3 = document.getElementById('favor3').value;
+            dataObj.email = document.getElementById('email').value;
+            dataObj.pet = document.getElementById('pet').value;
+            dataObj.wanna = document.getElementById('wanna').value;
+            console.log(`
+            이름: ${dataObj.name}
+            거주지: ${dataObj.addr}
+            좋아하는 리스트
+            1.${dataObj.favor1}
+            2.${dataObj.favor2}
+            3.${dataObj.favor3}
+            이메일: ${dataObj.email}
+            펫: ${dataObj.pet}
+            지금 가장 원하는 것: ${dataObj.wanna}
+            `);
+        }
+        
+        function showTable() {
+        document.getElementById('table').innerHTML=
+        `
+        <tr>
+            <td>이름</td>
+            <td>${dataObj.name}</td>
+        </tr>
+        <tr>
+            <td>거주지</td>
+            <td>${dataObj.addr}</td>
+        </tr>
+        <tr>
+            <td>좋아하는 리스트</td>
+            <td>
+                <ol>
+                <li>${dataObj.favor1}</li>
+                <li>${dataObj.favor2}</li>
+                <li>${dataObj.favor3}</li>
+                </ol>
+            </td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td>${dataObj.email}</td>
+        </tr>
+        <tr>
+            <td>펫 소유 여부</td>
+            <td>${dataObj.pet}</td>
+        </tr>
+        <tr>
+            <td>지금 가장 원하는 것</td>
+            <td>${dataObj.wanna}</td>
+        </tr>
+        `
+    }
+    </script>
+    
+</body>
+</html>

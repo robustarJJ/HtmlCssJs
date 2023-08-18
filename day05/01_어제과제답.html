@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴</title>
+    <style>
+        .round{
+            width: 100%;
+        }
+        .menu-box{
+            width: 200px;
+            float: left;
+        }
+        .box{
+            width: calc(100% - 220px);
+            height: 500px;
+            border: 1px solid black;
+            float: right;
+            background-image: url(/image/sydney.jpeg);
+        }
+        .menu{
+            width: 100%;
+            height: 30px;
+            display: block;
+            border: 1px solid black;
+            border-bottom: none;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            font-weight: 700px;
+            line-height: 30px;
+            font-size: 15px;
+
+        }
+        .menu:last-child{
+            border-bottom: 1px solid black;
+        }
+        .menu:hover{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <div class="round">
+        <div class="menu-box">
+            <a href="" class="menu">메뉴1</a>
+            <a href="" class="menu">메뉴2</a>
+            <a href="" class="menu">메뉴3</a>
+            <a href="" class="menu">메뉴4</a>
+        </div>
+        <div class="box"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 이름, 국어점수, 영어점수, 수학점수를 입력받아
+            합계와 평균을 출력 -->
+
+    
+    <form action="">
+        <fieldset>
+            <legend>점수 입력받아 합계와 평균</legend>
+            이름 : <input type="text" id="username"><br>
+            국어점수 : <input type="text" id="kor"><br>
+            영어점수 : <input type="text" id="eng"><br>
+            수학점수 : <input type="text" id="math"><br>
+            <button type="button" onclick="sum()">성적계산</button>
+        </fieldset>
+    </form>
+    <h3 id="print"></h3>
+
+    <script>
+        function sum(){
+            let username = document.getElementById('username').value;
+            let kor = document.getElementById('kor').value;
+            let eng = document.getElementById('eng').value;
+            let math = document.getElementById('math').value;
+            let print = document.getElementById('print');
+            print.innerText = `이름 : ${username}
+            `;
+            print.innerText += `국어 : ${kor}
+            `;
+            print.innerText += `영어 : ${eng}
+            `;
+            print.innerText += `수학 : ${math}
+            `;
+
+            kor = Number(kor);
+            eng = Number(eng);
+            math = Number(math);
+
+            print.innerText += `총합: ${kor+eng+math}
+            `;
+            print.innerText += `평균: ${(kor+eng+math)/3}
+            `;
+
+        }
+    </script>
+</body>
+</html>

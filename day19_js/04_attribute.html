@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute</title>
+</head>
+<body>
+    <h1>
+        Element의 속성에는 크게 두가지로 구분
+        -태그의 속성, - css(style) 속성
+    </h1>
+    <ul>
+        <li>
+            태그의 속성은 태그가 갖는 속성이기 때문에 속성명을 그대로 사용
+            name.id, name.src, name.classList
+        </li>
+        <li>
+            class 처럼 여러개의 값을 가지는 속성들은 classList
+        </li>
+        <li>
+            css 관련 속성은 style이라는 속성을 통해 css 프로퍼티에 접근
+        </li>
+        <li>
+            name.style.color, name.style.fontSize
+        </li>
+    </ul>
+    <img src="/image/cat1.jpg" alt="imgTag" class="a b c" id="image">
+    <script>
+        let img = document.getElementById('image');
+        console.log(image);
+        //id, src, alt, classList 콘솔에 찍어보기
+
+        console.log(img.id);
+        console.log(img.src);
+        console.log(img.alt);
+        console.log(img.classList);
+        console.log(img.classList[0]);
+        console.log("-----------------");
+        for(const key in img){
+            console.log(key+":"+img[key]);
+        }
+    </script>
+</body>
+</html>

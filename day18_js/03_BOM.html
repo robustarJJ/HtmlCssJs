@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOM</title>
+</head>
+<body>
+    <h1>
+        BOM : Brower Object Model : 브라우저 자체를 지칭하는 객체모델
+        window 객체를 지칭
+        DOM : Document Object Model
+    </h1>
+    <ul>
+        <li id="ih">
+            window.innerHeight : 툴바를 제외한 높이 =>
+        </li>
+        <li id="iw">
+            window.innerWidth : 스크롤바를 포함한 너비 =>
+        </li>
+        <li>
+            윈도우 브라우저 화면 배율에 따라 달라짐
+        </li>
+    </ul>
+    <script>
+        let ih = window.innerHeight;
+        let iw = window.innerWidth;
+        document.getElementById('ih').innerText += ih;
+        document.getElementById('iw').innerText += iw;
+    </script>
+</body>
+</html>

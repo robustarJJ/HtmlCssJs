@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 연습문제</title>
+</head>
+    <style>
+        a:link{
+            color: chartreuse;
+        }
+        a:visited{
+            color: brown;
+        }
+        a:active{
+            color: coral;
+        }
+        div{
+            font-size: 30px;
+            font-weight: 700;
+        }
+        #naver{
+            
+            background-color: beige;
+            
+        }
+        .google{
+            background-color: rgb(235, 213, 233);
+        }
+        .daum{
+            background-color: rgb(201, 228, 236);
+        }
+
+        ul>li{
+            font-size: 20px;
+            list-style: circle;
+            display: inline;
+            margin-right: 20px;
+        }
+        ul>li:nth-child(2n){
+            color: blue;
+        }
+        ul>li:nth-child(3n){
+            color: cadetblue;
+        }
+        ul>li:first-child, li:last-child{
+            font-weight: 700;
+        }
+        ul>li:hover{
+            color: brown;
+        }
+        /*
+        after : 뒤에 붙이는 가상 값
+        before : 전에 붙이는 가상 값
+        */
+        li::after{
+            content: "]";
+        }
+        li::before{
+            content: "[";
+        }
+
+    </style>
+<body>
+    <!-- 
+        div 3개를 만들어
+        naver, google, daum 사이트로 연결되게 하고,
+        각 div는 색깔과 모양을 달리 스타일 주기.
+        color : 글자색
+        background-color : 면색
+        폰트 관련 스타일들.
+
+        링크 클릭했는지에 따라서 글꼴 색이 달라지는 가상 선택자가 있음.(의사선택자)
+        a:link(방문전)
+        a:visited(링크를 눌러본 후 색)
+        a:active(클릭할때 색)
+     -->
+     <!-- 
+        ul -> li 태그 10개 생성
+        전체 글자크기 크게(일정하게..)
+        짝수 : 색 변경(빨간색)
+        3,6,9 : 초록색
+        1,10 : 굵게
+        :hover
+      -->
+
+    <div id="naver">
+        <a href="http://www.naver.com" target="_blank">
+            NAVER
+        </a>
+    </div>
+
+    <div class="google">
+        <a href="http://www.google.com" target="_blank">
+            GOOGLE
+        </a>
+    </div>
+
+    <div class="daum">
+        <a href="http://www.daum.net" target="_blank">
+            DAUM
+        </a>
+    </div>
+
+    
+        <ul>
+            <li>전자신문</li>
+            <li>뉴욕타임즈</li>
+            <li>디지털타임즈</li>
+            <li>동아일보</li>
+            <li>조선일보</li>
+            <li>한겨례</li>
+            <li>경기일보</li>
+            <li>스포츠조선</li>
+            <li>중앙일보</li>
+            <li>연합뉴스</li>
+        </ul>
+    
+
+</body>
+</html>

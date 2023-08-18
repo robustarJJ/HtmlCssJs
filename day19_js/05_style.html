@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Element</title>
+</head>
+<body>
+    <h1>
+        css의 적용은 element.style.propirty 형식으로 접근이 가능
+    </h1>
+    <ul>
+        <li>
+            property는 자바스크립트의 코드 : -(하이픈) 적용안됨
+        </li>
+        <li>
+            css속성의 -(하이픈)을 제거하고, 카멜표기법으로 변경
+        </li>
+        <li>
+            Element.setArrtibute(name, value) : element에 속성 부여
+            이미 있는 속성이라면 업데이트, 없으면 새 속성으로 추가
+        </li>
+        <li>
+            cssName.setProperty(name, value) : css 스타일을 부여할 대상에게
+            css 프로퍼티를 부여
+        </li>
+        <li>
+            name : css Name, value : 속성값
+        </li>
+    </ul>
+    <h1 id="h1">
+        스타일 속성 변경하기
+    </h1>
+    <input type="text" id="inputcolor1" placeholder="글자색 변경하기">
+    <input type="color" id="inputcolor2">
+    <button id="btn">속성변경</button>
+
+    <script>
+        document.getElementById('btn').addEventListener('click',()=>{
+            const h1 = document.getElementById('h1');
+            h1.style.color="red";
+            //input 태그의 값으로 색 변경
+            const color1 = document.getElementById('inputcolor1').value;
+            h1.style.color=color1;
+            const color2 = document.getElementById('inputcolor2').value;
+            h1.style.backgroundColor=color2;
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+</head>
+<body>
+    <!-- input tag는 단일 태그(닫는 태그가 없는 태그)
+        type 속성에 따라 여러가지 기능으로 사용된다.
+        주로 데이터를 입력받기위해 사용
+        <input type="속성명" 여러가지 태그 속성들...>
+        데이터를 서버로 전달히기 위해서 form 태그를 같이 사용
+        <form> 태그와 같이 사용된다. </form>
+    -->
+    <!-- type="text" : 가장 많이 사용, 영문, 한글, 특수문자 입력받을 때 사용 
+        placeholder : 흐리게 표시 (안내문자 표시)-->
+        아이디 : <input type="text">
+        패스워드 : <input type="text" placeholder="패스워드">
+        <hr>
+        <!-- 
+            type="button" : 일반버튼 => 버튼은 3가지 형식으로 지원
+            type="submit" : 전송버튼 => 데이터를 서버로 전송
+            type="reset" : 취소버튼 => 취소
+         -->
+         <!-- form 에서 method를 지정하지 않으면 기본 get 방식으로 전송 -->
+        <form action="#">
+            <input type="text" name="data">
+            <input type="text" name="datapass">
+            <input type="button" value="button">
+            <input type="submit" value="submit">
+            <input type="reset" value="reset">
+        </form>
+        <hr>
+        <!-- type="password" : 비밀번호에 사용 입력내용을 숨김 -->
+        <input type="password">
+
+        <!-- type="checkbox" : 다중 선택을 이용할 경우 사용 -->
+        <!-- type="radio" : 여러개 중 하나만 선택할 경우 사용-->
+        <input type="checkbox">
+        <input type="radio">
+        <hr>
+
+        <!-- checkbox value="전송값" value가 없으면 on으로 전송 -->
+        <form action="">
+            <p>좋아하는 과일은 : (복수 선택 가능)</p>
+            <input type="checkbox" name="fruit"> apple
+            <input type="checkbox" name="fruit" value="orange"> orange
+            <input type="checkbox" name="fruit" value="banana"> banana
+            <input type="submit" value="전송">
+        </form>
+
+        <!-- label tag : input의 이름 지정 가능 
+            for="id값" 라벨을 클릭하면 id를 가지는 체크박스(라디오버튼)가 선택
+        -->
+        <hr>
+        <form action="">
+            <p>좋아하는 과일은 : (복수 선택 가능)</p>
+
+            <label for="apple">apple</label>
+            <input type="checkbox" name="fruit" value="apple" id="apple">
+            <label for="orange">orange</label>
+            <input type="checkbox" name="fruit" value="orange" id="orange">
+            <label for="banana">banana
+                <input type="checkbox" name="fruit" value="banana" id="banana">
+            </label>
+
+            <input type="submit" value="전송">
+        </form>
+
+        <!-- 라벨, 라디오 버튼을 이용하여 남,여 선택하는 form태그를 생성 -->
+        <form action="">
+        <p>성별 선택</p>
+
+        <label for="m">남</label>
+        <input type="radio" name="gender" value="남" id="m">
+        <label for="w">여</label>
+        <input type="radio" name="gender" value="여" id="w">
+        <input type="submit" value="전송">
+        </form>
+        <hr>
+
+        <!-- type = "color" : 색을 선택할 때 사용, 색상정보를 16진수로 표현 -->
+        <form action="">
+            <input type="color" name="color">
+            <input type="submit" value="submit">
+        </form>
+        <hr>
+        <!-- 
+            type="month" : 년, 월
+            type="week" : 년, 주
+            type="date" : 년월일
+            type="time" : 시분초
+            실무에서는 부트스트랩에서 제공하는 datepicker, jquery datapiker 를 이용함
+         -->
+         <input type="month">
+         <input type="week">
+         <input type="date">
+         <input type="datetime-local">
+         <input type="datetime">
+         <input type="time">
+
+         <!-- type="email" : 이메일 형식인지 체크 -->
+         <!-- type="url" : url형식인지 체크 -->
+         <hr>
+         <form action="">
+             <input type="email" name="email">
+             <input type="url" name="url">
+            <input type="submit" name="submit" >
+         </form>
+         <hr>
+
+         <!-- type="file" : 첨부파일 선택 -->
+         <input type="file" name="" id="">
+
+         <!-- type="hidden" : 안보이게 숨김속성, 백엔드에서 데이터를 숨겨서 보낼때 사용 -->
+         <input type="hidden" name="" id="">
+         <hr>
+
+         <!-- type="image" : 이미지를 추가하는 역할
+            src="이미지주소", alt="이미지가 없을 때 보여지는 문자" -->
+            <input type="image" alt="이미지없음" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMzA3MDlfMTc5%2FMDAxNjg4ODk4OTQxODU2.FE8bRDttCYYzeTa2ie4zwPI1dvYu9x_X3vf8lrY8zw4g.A8IUAX7uwRlf3koYy3WWpyNaWiDBuUHjA-DkyustrtIg.JPEG.yomi_02%2F%25B0%25ED%25BE%25E7%25C0%25CC345.jpg&type=a340">
+            <hr>
+        <!-- 내 파일에 저장되어 있는 이미지 보여주기 -->
+        <input type="image" alt="고양이그림" src="/image/cat1.jpg">
+        <hr>
+
+        <!-- type="number" : 숫자만 입력 가능한 창 -->
+        <!-- max, min 속성을 이용하면 입력할 범위를 제한 -->
+        <input type="number" max="100" min="0">
+        <!-- 읽기전용-> 값을 변경못함 -->
+        <input type="number" max="100" min="0" readonly value="100">
+        <hr>
+        
+        <!-- type="range" : 상태바를 보여줌 -->
+        1 <input type="range" name="" id="" max="100" min="1"> 100
+        <hr>
+        
+        <!-- type="search" : 검색 text와 비슷한 역할 x모양이 추가 -->
+        <input type="search">
+
+         <br><br><br><br><br>
+
+</body>
+</html>

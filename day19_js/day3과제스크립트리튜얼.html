@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가고싶은도시</title>
+    <style>
+        h1{
+            border: 3px solid black;
+            max-width: 250px;
+            min-width: 100px;
+            text-align: center;
+            margin: 50px auto;
+            
+        }
+
+        ul{
+            text-align: center;
+            
+        }
+        ul>li{
+            display:inline;
+            margin: 20px;
+        }
+        img{
+            
+            width: 700px;
+            height: 500px;
+           
+        }
+        div{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Travel</h1>
+    <ul>
+        <li><a id="home" class="curr_view" onclick="clickCity(this)">Home</a></li>
+        <li><a id="seoul" onclick="clickCity(this)">Seoul</a></li>
+        <li><a id="Newyork" onclick="clickCity(this)">New york</a></li>
+        <li><a id="Sydney" onclick="clickCity(this)">Sydney</a></li>
+        <li><a id="Roma" onclick="clickCity(this)">Roma</a></li>
+    </ul>
+    <br>
+    <div> <img id="cityImg" src="/image/earth.jpg" alt="Home"> </div>
+    <script>
+        const clickCity = (elem) => {
+            console.log(elem);
+            console.log(elem.id);
+            let idVal = elem.id;
+            document.getElementById('cityImg').src = 
+            `/image/${idVal}.jpg`;
+        }
+        // let img = document.getElementsByClassName('img');
+        // console.log(img);
+        // for(let i=0; i<img.length; i++){
+        //     img[i].addEventListener('click',()=>{
+        //         console.log(img[i]);
+        //         document.getElementById('i').src='/image/seoul.jpg';
+        //     })
+
+        // }
+    </script>
+</body>
+</html>

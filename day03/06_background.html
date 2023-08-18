@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background 속성</title>
+    <!-- 
+        - 배경색 : background - color
+        - 배경이미지 : background - image
+        배경색과 배경이미지를 둘다 지정하면 배경이미지가 우선 출력
+        배경이미지가 출력되지 않는 부분은 배경색으로 출력
+        background-size : 배경이미지 크기
+        가로 * 세로 크기 순으로 입력
+        background-repeat : 배경이미지 반복
+            - no-repeat : 반복x
+            - repeat-x : x축으로 반복
+            - repeat-y : y축으로 반복
+            - round : 양쪽반복
+            - 기본값은 반복이 되는 형태
+        background-position : 배경 이미지 위치
+            - center : 가운데
+            - x축, y축 값으로
+        background : color image position/size repeat 순으로 입력
+     -->
+     <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-image: url(/image/cat1.jpg);
+            /* background-size: 100%; */
+            border: 1px solid black;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: aqua;
+            /*
+            box2 div를 만들어 배경이미지가 박스에 꽉 차도록 설정 
+             */
+        }
+
+        .box2{
+            width: 1000px;
+            height: 1000px;
+            background-image: url(/image/호랑이.jpg);
+            border: 1px solid black;
+            background-size: cover;
+            background-position: center;
+            background-repeat: repeat;
+            
+        }
+     </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+</body>
+</html>

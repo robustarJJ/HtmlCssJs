@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>가위 바위 보 게임 10번의 승률 출력</h3>
+    <button type="button" id="btn">승률출력</button>
+    <h3>
+        10번 게임의 승률은 <span id="result"> </span> % 입니다.
+    </h3>
+
+    <script>
+        //가위 바위 보는 com => 랜덤, player => 랜덤
+        //승률계산 (승리 / (10-무))*100
+        //1=가위, 2=바위, 3=보
+        document.getElementById('btn').addEventListener("click", ()=>{
+            let draw = 0; //무승부 값
+            let win = 0; //승  
+            let lose = 0; //패
+            let result=0;
+
+            for(let i=1; i<=10; i++){
+                let player = Math.floor(Math.random()*3)+1;
+                let com = Math.floor(Math.random()*3)+1;
+                if(player==com){
+                    draw++;
+                }else if(com==1 && player==2){
+                    win++;
+                    
+                }else if(com==2 && player==3){
+                    win++;
+                    
+                }else if(com==3 && player==1){
+                    win++;
+                    
+                }else{
+                    lose++;
+                }
+
+                // if(player>com){
+                //     win++;
+                // }else if(player == com){
+                //     draw++;
+                // }else if(player == 1 && com == 3){
+                //     win++;
+                // }
+
+                // switch(player){
+                //     case 1: //가위
+                //         com == 1? draw++ : com==2? lose++ : win++;
+                //         break;
+                //     case 2: //바위
+                //         com == 2? draw++ : com==3? lose++ : win++;
+                //         break;
+                //     case 3: //보
+                //         com == 3? draw++ : com==1? lose++ : win++;
+                //         break;
+                //     default : break;
+                // }
+
+
+                console.log('플레이어'+player);
+                console.log('컴'+com);
+
+
+            }
+            console.log("승: ",win, "무: ",draw, "패: ",lose);
+            //승률계산
+            document.getElementById('result').innerText=
+            ((win/(10-draw))*100).toPrecision(4);  //.toPrecision(정수자리+소수자리): 전체 자리수 포함한 자리수
+            
+
+            })
+
+        
+            
+
+    </script>
+</body>
+</html>

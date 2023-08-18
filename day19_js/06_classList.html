@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classList</title>
+</head>
+<body>
+    <h1>
+        Tag의 classList 속성
+    </h1>
+    <ul class="ul list iter">
+        <li>
+            element.classList : class 속성값은 여러개가 올수 있으므로
+            list의 형태로 리턴
+        </li>
+        <li>
+            리턴타입이 TokenList 객체이기 때문에 별도의 메서드 사용가능
+        </li>
+        <li>
+            add(), contains(), toggle(), remove() ...
+        </li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        const ul = document.getElementsByTagName('ul');
+        console.log(ul);
+        console.log(ul[0].classList);
+
+        //클래스 추가 메서드
+        ul[0].classList.add('ul2');
+        console.log(ul[0].classList);
+
+        //클래스 삭제 메서드
+        ul[0].classList.remove('iter');
+        console.log(ul[0].classList);
+
+        //클래스 탐색 메서드 => 리턴 boolean
+        let bool = ul[0].classList.contains('iter');
+        console.log(bool);
+
+        //toggle : 있으면 삭제, 엇으면 추가(가장 마지막)
+        ul[0].classList.toggle('iter');
+        console.log(ul[0].classList)
+
+        //replace() : old -> new로 변경
+        ul[0].classList.replace('iter', 'after');
+        console.log(ul[0].classList);
+    </script>
+</body>
+</html>

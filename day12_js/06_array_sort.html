@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열의 정렬</title>
+</head>
+<body>
+    <h1>
+        배열의 정렬은 문자기반으로 정렬이 됨.
+    </h1>
+    <ul>
+        <li>
+            array.sort() : 문자 기준의 오름차순
+        </li>
+        <li>
+            array.reverse() : 문자 기준 내림차순
+        </li>
+        <li>
+            정렬한 배열의 원소가 숫자일 경우 콜백함수를 이용하여 내부 연산을 하여 정렬
+        </li>
+        <li>
+            array.sort(function(a,b)){
+                return a-b; //오름차순
+            }
+        </li>
+        <li>
+            array.sort(function(a,b)){
+                return b-a; //내림차순
+            }
+        </li>
+    </ul>
+
+    <script>
+        const myArr=[];
+        //1~45까지의 랜덤숫자 6개를 생성 배열에 저장 후 콘솔에 출력
+        for(let i=0; i<6; i++){
+            let ran = (Math.floor(Math.random()*45)+1);
+            myArr[i]=ran;
+            console.log(myArr[i]);
+        }
+        //정렬 후 다시 콘솔에 출력
+        console.log("------오름차순정렬--------")
+        myArr.sort(function(a,b){
+            return a-b;
+        })
+        console.log(myArr);
+        console.log("-------------------------------------------")
+
+        const cars=[
+           {type: 'Volvo', year:2020},
+           {type: 'Benz', year:2023},
+           {type: 'AMW', year:2021},
+
+        ];
+        console.log(cars);
+        // console.log(cars.sort());
+        cars.sort(function(a,b){
+            return b.year - a.year;
+        })
+        console.log(cars);
+        console.log("-------------------------------------------")
+
+        //객체 안의 문자값을 이용하여 정렬
+        cars.sort(function(a,b){
+            let x = a.type.toLocaleLowerCase(); //소문자로 변경
+            let y = b.type.toLocaleLowerCase();
+            if(x > y){
+                return 1;
+            }
+            if(x < y){
+                return -1;
+            }
+            return 0;
+        })
+        console.log(cars);
+    </script>
+</body>
+</html>

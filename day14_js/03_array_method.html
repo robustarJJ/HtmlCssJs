@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        배열의 순환 구조를 이용하여 특정 기능을 할 수 있는 메서드를 제공
+    </h1>
+    <ul>
+        <li>
+            array.reduce(callback function(total, value, index, self), [init value])
+            연산의 누적값을 리턴
+        </li>
+        <li>
+            array.reduceRight(reduce와 동일) : 배열의 값을 우측에서 좌측 방향으로 대입
+        </li>
+        <li>
+            array.every(callback function(value, index, self)) :
+            콜백함수의 리턴조건에 모든 배열의 값이 만족하면 true를 리턴 아니면 false를 리턴
+        </li>
+        <li>
+            array.some(callback functoin(value, index, self)) :
+            콜백함수의 리턴조건에 만족하는 배열값이 존재하면 true, 아니면 false를 리턴
+        </li>
+        <li>
+            array.indexOf('str',[start index]) : 해당 문자열이 존재하는 배열의 index를 리턴
+        </li>
+        <li>
+            array.lastIndexOf('str',[start index]) : 뒤에서부터 탐색
+        </li>
+        <li>
+            array.find(callback function(value, index, self)) :
+            검색 조건에 만족하는 첫번째 배열값 리턴
+        </li>
+        <li>
+            array.findIndex(callback function(value, index, self)) :
+            검색 조건에 만족하는 첫번째 배열의 index를 리턴
+        </li>
+        <li>
+            array.from('객체') : 순서가 있거나, 순환구조를 갖고 있는 객체를 배열로 변환
+        </li>
+        <li>
+            array.keys(): 배열이 사용중인 key(식별자: index)를 검색하여 새로운 배열로 리턴
+        </li>
+        <li>
+            array.entrise() : index:value의 pair 구조의 값을 만들어 새로운 배열에 담아 리턴
+        </li>
+        <li>
+            array.includes("찾고싶은 값") : 배열에 찾는 값이 존재하면 true를 리턴
+        </li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        const arr = [1,12,3,4,15];
+        const sum = arr.reduce(function(total,value){
+            return total+value;
+        },100);
+        console.log(sum); //110
+
+        const fruits=['Apple','Orange','Apple','Banana'];
+        console.log(fruits.indexOf("Apple",1)); //2번째 Apple의 위치
+
+        const f = arr.find((e)=>{
+            return e > 10;
+        })
+        console.log(f);
+
+        const f1 = arr.find(function(e){
+            return e > 13;
+        })
+        console.log(f1);
+
+        const even = arr.every((e)=>e % 2===0);
+        console.log(even);
+
+        const ent = fruits.entries();
+        console.log(ent); //Array Iterator로 리턴
+        for(const e of ent){
+            console.log(e);
+        }
+
+        console.log("------------------------------------")
+        //배열을 하나 생성 후 합계를 콘솔에 찍기
+        const arr2 = [11,22,33,44,55];
+        //case 1
+        const sum2 = arr2.reduce(function(total,value){
+            return total+value;
+        })
+        console.log(sum2);
+        //case 2
+        const sum3 = arr2.reduce((t,v)=>{
+            return t+v;
+        })
+        console.log(sum3);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창</title>
+</head>
+<body>
+    <h1>
+        window 메서드 종류
+    </h1>
+    <ul>
+        <li>
+            열때
+            window.open('url','window name','option(size, scoll...)');
+        </li>
+        <li>
+            window.close() : 닫을 때
+        </li>
+        <li>
+            alert() : 경고창 띄움. prompt : input 받을 수 있는 창.
+            confirm() : 확인/취소 창
+        </li>
+    </ul>
+
+    <button type="button" onclick="openWindow()">열기</button>
+    <button type="button" onclick="closeWindow()">닫기</button>
+    <button type="button" onclick="alertEx()">alert</button>
+    <button type="button" onclick="confirmEx()">confirm</button>
+    <button type="button" onclick="promptEx()">prompt</button>
+    <h3 id="msg"></h3>
+
+    <script>
+        let myWindow;
+        function openWindow(){
+            myWindow = window.open("http://www.naver.com","mywindow","width=200, height=300");
+        }
+
+        function closeWindow(){
+            if(myWindow){
+                myWindow.close();
+            }
+        }
+        
+        function alertEx(){
+            alert('alert 연습');
+        }
+
+        function confirmEx(){
+            let a = confirm('안뇽');
+            if(a){
+                document.getElementById('msg').innerText = '확인 클릭~!!';
+            }else{
+                document.getElementById('msg').innerText = '취소 클릭~!!';
+            }
+        }
+
+        function promptEx(){
+            let b = prompt('단어를 입력해주세요');
+            document.getElementById('msg').innerText = b;
+        }
+    </script>
+</body>
+</html>

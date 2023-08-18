@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #result1{
+        font-size: 50px;
+        text-align: center;
+    }
+    #result2{
+        font-size: 20px;
+        text-align: center;
+    }
+    #result3{
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 id="result1"></h1>
+    <h3 id="result2"></h3>
+    <div id="result3"></div>
+    <div id="result4"></div>
+    <script>
+        fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json')
+        .then(resp=> resp.json())
+        .then(json=>{print1(json),
+                     print2(json),
+                     print3(json)})
+        .catch(err=>console.log(err));
+
+        function print1(obj){
+            console.log(`${obj['squadName']}`);
+            let header= document.getElementById('result1');
+            header.innerHTML=
+            `${obj['squadName']}`;
+        }
+
+        function print2(obj){
+            let homeTown;
+            let formed;
+            for(const key in obj){
+                if(key=='homeTown'){
+                    console.log(`${key} : ${obj['homeTown']}`);
+                    homeTown = `${key} : ${obj['homeTown']}`;
+                }
+            }
+            for(const key in obj){
+                if(key=='formed'){
+                    console.log(`${key} : ${obj['formed']}`);
+                    formed = `${key} : ${obj['formed']}`;
+                }
+            }
+            let header2= document.getElementById('result2');
+            header2.innerHTML=
+            `${homeTown} // ${formed}`;
+        }
+
+        function print3(obj){
+            let Members=[];
+           
+            for(const key in obj){
+                if(key=='members'){
+                    for(let i=0; i<obj['members'].length; i++){
+                        console.log(`${key} : ${obj['members'][i]['name']}`);
+                        Members[i] = obj['members'][i]['name'];
+                        console.log(obj['members'][i])
+                        for(const k in obj['members'][i]){
+                            console.log(`${k} : ${obj['members'][i][k]}`);
+                            Members[i]+=`${k} : ${obj['members'][i][k]}`;
+                        }
+                        // console.log(Members[i]);
+                        let header3= document.getElementById('result3');
+                        header3.innerHTML+=
+                        `${Members[i]}`+`<br>`;
+                        
+                        
+                    }
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

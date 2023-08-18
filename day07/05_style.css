@@ -1,0 +1,215 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+div{
+    width: 100%;
+}
+.header{
+    height: 60px;
+    background-color: aliceblue;
+    font-size: 20px;
+    line-height: 60px;
+    padding-left: 40px;
+    font-weight: 700;
+}
+/* media query 변경내용 */
+.main-img{
+    height: 300px;
+    background-image: url(/image/노트북.jpg);
+    background-size: cover;  /* 전체 덮기*/
+    background-position: center;
+}
+.description{
+    height: 300px;
+    background-color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+}
+.description>p:first-child{
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    color: gray;
+}
+.description>p:nth-child(2){
+    font-size: 20px;
+    font-weight: 700;
+}
+.description>p:last-child{
+    font-size: 16px;
+    color: rgb(60, 60, 60);
+}
+.sub-img1{
+    height: 350px;
+    background-image: url(/image/모니터.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.sub-img2{
+    height: 200px;
+    background-image: url(/image/키보드.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    line-height: 200px;
+}
+.sub-img2>a{
+    line-height: normal;
+    border: 4px solid white;
+    padding: 10px 40px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+}
+.sub-img3{
+    height: 200px;
+    background-image: url(/image/마우스.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 800px) {
+    .main-img{
+        height: 500px;
+        background-image: url(/image/노트북.jpg);
+        background-size: cover;  /* 전체 덮기*/
+        background-position: center;
+    }
+    .description{
+        height: 300px;
+        background-color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+    }
+    .description>p:first-child{
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        color: gray;
+    }
+    .description>p:nth-child(2){
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .description>p:last-child{
+        font-size: 16px;
+        color: rgb(60, 60, 60);
+    }
+    .sub-img1{
+        width: 50%;
+        height: 300px;
+        float: left;
+        background-image: url(/image/모니터.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .sub-img2{
+        width: 50%;
+        height: 150px;
+        float: right;
+        background-image: url(/image/키보드.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        line-height: 150px;
+    }
+    .sub-img2>a{
+        line-height: normal;
+        border: 4px solid white;
+        padding: 10px 40px;
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+    }
+    .sub-img3{
+        width: 50%;
+        height: 150px;
+        float: right;
+        background-image: url(/image/마우스.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .main-img{
+        float: left;
+        width: 50%;
+        height: 600px;
+        background-image: url(/image/노트북.jpg);
+        background-size: cover;  /* 전체 덮기*/
+        background-position: center;
+    }
+    .description{
+        width: 50%;
+        height: 300px;
+        float: right;
+        background-color: white;
+        padding-left: 40px;
+        box-sizing: border-box;
+    }
+    .description>p:first-child{
+        font-size: 16px;
+        font-weight: 700;
+        margin-top: 30px;
+        margin-bottom: 40px;
+        color: gray;
+    }
+    .description>p:nth-child(2){
+        font-size: 20px;
+        font-weight: 700;
+    }
+    .description>p:last-child{
+        font-size: 16px;
+        color: rgb(60, 60, 60);
+    }
+    .sub-img1{
+        width: 25%;
+        float: left;
+        height: 300px;
+        background-image: url(/image/모니터.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .sub-img2{
+        width: 25%;
+        float: right;
+        height: 150px;
+        background-image: url(/image/키보드.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-align: center;
+        line-height: 150px;
+    }
+    .sub-img2>a{
+        line-height: normal;
+        border: 4px solid white;
+        padding: 10px 40px;
+        font-size: 16px;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+    }
+    .sub-img3{
+        width: 25%;
+        float: right;
+        height: 150px;
+        background-image: url(/image/마우스.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}

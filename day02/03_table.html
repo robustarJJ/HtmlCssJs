@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table tag</title>
+</head>
+<body>
+    <!-- 
+        table : 표
+        - table 태그는 행(tr) / 열(th, td)의 조합으로 표현
+        - tr : 한 행을 의미
+        - th / td : 열을 의미 (한칸)
+            - th : 가운데정렬, 굵은 글씨 : 첫라인 제목을 표시
+            - td : 왼쪽정렬, 일반글자
+        3행 4열의 테이블을 만들려면
+        tr -> 3개
+        td -> 3*4 = 12개
+        -table 태그의 속성은 css에서 설정가능
+        -border : 테두리 두께
+        -bordercolor : 테두리 색
+        -width = 가로 길이
+
+        - th / td
+        - colspan(열병함) / rowspan(행병합) : 셀 병함
+        - 병합을 하게 되면 병합된 칸은 지워줘야 함.
+     -->
+     <table border="1" width="50%">
+        <tr>
+            <td colspan="2">1</td>
+            
+            <td>3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td rowspan="9">5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+        </tr>
+     </table>
+
+     <!-- 
+        table => thead / tbody / tfoot / caption(표제목)
+        테이블 테그의 요소로 포함
+        필수는 아니지만 사용하지 않으면 tbody가 자동추가
+        thead > tbody > tfoot 순서로 배치된다.
+        순서가 달라져도 무조건 thead는 위에 배치됨
+      -->
+      <table border="1" width="50%">
+        <caption>성적표</caption>
+        <thead>
+            <tr>
+                <th width="20%">이름</th>
+                <th width="20%">과목</th>
+                <th width="20%">점수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>홍길동</td>
+                <td>국어</td>
+                <td>78</td>
+            </tr>
+            <tr>
+                <td>영이</td>
+                <td>국어</td>
+                <td>54</td>
+            </tr>
+            <tr>
+                <td>철수</td>
+                <td>국어</td>
+                <td>85</td>
+            </tr>
+            <tr>
+                <td>홍길순</td>
+                <td>국어</td>
+                <td>44</td>
+            </tr>
+            <tr>
+                <td>이순신</td>
+                <td>국어</td>
+                <td>58</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <th colspan="2">합계</th>
+            <th>500</th>
+
+        </tfoot>
+      </table>
+    
+    <br>
+
+    <table border="1" width="30%">
+        <caption>게시판</caption>
+        <thead>
+            <tr>
+                <th width="25%">번호</th>
+                <th width="25%">내용</th>
+                <th width="25%">작성자</th>
+                <th width="25%">작성일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>내용입니다.1</td>
+                <td>영이</td>
+                <td>2023-07-18</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>내용입니다.2</td>
+                <td>순이</td>
+                <td>2023-07-18</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>내용입니다.3</td>
+                <td>철수</td>
+                <td>2023-07-18</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>내용입니다.4</td>
+                <td>영철</td>
+                <td>2023-07-18</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>내용입니다.5</td>
+                <td>길동</td>
+                <td>2023-07-18</td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>
